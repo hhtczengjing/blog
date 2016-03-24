@@ -1,0 +1,296 @@
+---
+layout: post
+title: "在iOS9中使用3D Touch"
+date: 2015-10-24 21:19:25 +0800
+comments: true
+tags: iOS
+---
+
+在iPhone 6s和iPhone 6s Plus中Apple引入了3D Touch技术。3D Touch的触控技术，被苹果称为新一代多点触控技术。其实，就是此前在Apple Watch上采用的Force Touch，屏幕可感应不同的感压力度。
+
+![ios_3d_touch.png](/images/ios9_3d_touch/ios_3d_touch.png)
+
+iOS9提供了四类API（`Home Screen Quick Action`、`UIKit Peek & Pop` 、`WebView Peek & Pop` 和`UITouch Force Properties`）用于操作3D Touch(`Pressure Sensitivity` 、 `Peek and Pop` 和 `Quick Actions`)。不过无论使用哪一种API，首先需要做的事情是检查3D Touch是否可用。
+
+###检测是否支持3D Touch
+
+在iOS9中提供如下的接口用于检查设备是否支持3D Touch：
+
+```
+@property(nonatomic, readonly) UIForceTouchCapability forceTouchCapability;
+```
+
+其中`UIForceTouchCapability`是一个枚举类型，具体的描述情况如下：
+
+* UIForceTouchCapability
+	* UIForceTouchCapabilityUnknown         //3D Touch检测失败
+	* UIForceTouchCapabilityUnavailable     //3D Touch不可用
+	* UIForceTouchCapabilityAvailable       //3D Touch可用
+	
+这3个枚举值就是我们来判断设备是否开启3D Touch功能，可以在UIViewController生命周期的viewWillAppear中做如下判断：
+
+```
+if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+	//do something
+}
+```
+当然在生命周期内，如果用户有意修改了设备的3D Touch功能，我们还有一个地方来重新检测：
+
+```
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+	//do something
+}
+```
+
+####Home Screen Quick Action
+
+在iPhone 6s或者iPhone 6s Plus上面，当用户按压App的Icon图标的时候，会弹出Quick Action，当用户选择其中的Action的时候，App会启动并实现相应的功能。这一过程相当于在PC上面的右键快捷菜单的功能，如下图所示的效果：
+
+![maps_directions_home](/images/ios9_3d_touch/maps_directions_home_2x.png)
+
+####开发环境
+
+官方文档上指出Xcode7.0以上的模拟器不支持3D Touch，必须使用支持3D Touch的设备（iPhone 6s或者iPhone 6s Plus）进行调试。但是这并不能阻止我们在模拟器上面进行调试，GitHub上面早有大神提供了模拟器调试Quick Action的方法，项目的地址是：`https://github.com/DeskConnect/SBShortcutMenuSimulator`。下面简单介绍一下安装的步骤：
+
+#####①编译
+
+```
+git clone https://github.com/DeskConnect/SBShortcutMenuSimulator.git
+cd SBShortcutMenuSimulat
+make
+```
+
+#####②让SpringBoard支持SBShortcutMenuSimulator
+
+在开启模拟器的情况下，在SBShortcutMenuSimulator目录下面执行如下两行命令：
+
+```
+xcrun simctl spawn booted launchctl debug system/com.apple.SpringBoard --environment DYLD_INSERT_LIBRARIES=$PWD/SBShortcutMenuSimulator.dylib
+xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
+```
+
+#####③预览效果
+
+`echo 'com.apple.mobilecal' | nc 127.0.0.1 8000`，其中com.apple.mobilecal指的是系统自带的日历的Bundle ID，运行的时候替换成你的应用的Bundle ID即可。
+
+####创建方式
+
+上面的示例图中有四个Action Item，其中每个Action是使用UIApplicationShortcutItem这个对象进行描述的，下面列出每一个UIApplicationShortcutItem中能够包含的信息：
+
+![action_item_desc.png](/images/ios9_3d_touch/action_item_desc.png)
+
+创建Quick Action有两种方式：静态和动态
+
+#####①以静态方式创建
+
+静态创建的方式是在Info.plist文件中进行声明的
+
+```
+<key>UIApplicationShortcutItems</key>
+<array>
+	<dict>
+		<key>UIApplicationShortcutItemType</key>
+		<string>com.devzeng.homePage</string>
+		<key>UIApplicationShortcutItemTitle</key>
+		<string>首页</string>
+		<key>UIApplicationShortcutItemSubtitle</key>
+		<string>这是首页</string>
+		<key>UIApplicationShortcutItemIconFile</key>
+		<string>icon_home.png</string>
+		<key>UIApplicationShortcutItemUserInfo</key>
+		<dict>
+			<key>scheme</key>
+			<string>devzeng://home</string>
+		</dict>
+	</dict>
+	<dict>
+		<key>UIApplicationShortcutItemType</key>
+		<string>com.devzeng.about</string>
+		<key>UIApplicationShortcutItemTitle</key>
+		<string>关于我们</string>
+		<key>UIApplicationShortcutItemSubtitle</key>
+		<string>这是关于我们</string>
+		<key>UIApplicationShortcutItemIconFile</key>
+		<string>icon_about.png</string>
+		<key>UIApplicationShortcutItemUserInfo</key>
+		<dict>
+			<key>scheme</key>
+			<string>devzeng://about</string>
+		</dict>
+	</dict>
+</array>
+```
+
+#####②以动态方式创建
+
+动态创建是在程序初始化的时候用代码动态添加。`UIApplication`对象多了一个支持快捷方式的数组（shortcutItems）, 如果需要增加快捷方式，可以赋值给shortcutItems属性。
+
+```
+@property(nonatomic, copy) NSArray <UIApplicationShortcutItem *> *shortcutItems;
+```
+
+示例代码如下：
+
+
+```
+//创建ShortcutItem
+UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_register.png"];//创建快捷item的icon即UIApplicationShortcutItemIconFile
+NSDictionary *info1 = @{@"scheme":@"devzeng://register"};//创建快捷item的userinfo即UIApplicationShortcutItemUserInfo
+UIMutableApplicationShortcutItem *item1 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"com.devzeng.registerPage" localizedTitle:@"注册" localizedSubtitle:@"注册新用户" icon:icon1 userInfo:info1];
+//创建ShortcutItem
+UIApplicationShortcutIcon *icon2 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_shop.png"];
+NSDictionary *info2 = @{@"scheme":@"devzeng://shop"};
+UIMutableApplicationShortcutItem *item2 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"com.devzeng.shopPage" localizedTitle:@"购物车" localizedSubtitle:@"查看购物车" icon:icon2 userInfo:info2];
+//创建ShortcutItem
+UIApplicationShortcutIcon *icon3 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"icon_help.png"];
+NSDictionary *info3 = @{@"scheme":@"devzeng://help"};
+UIMutableApplicationShortcutItem *item3 = [[UIMutableApplicationShortcutItem alloc] initWithType:@"com.devzeng.helpPage" localizedTitle:@"帮助" localizedSubtitle:@"帮助手册" icon:icon3 userInfo:info3];
+//注册ShortcutItem
+[UIApplication sharedApplication].shortcutItems = items;
+```
+
+说明：
+
+1)系统限制每个App最多能够显示4个Action Item，其中包括静态方式和动态方式进行创建的；
+
+2)如果静态和动态方式同时使用的时候，给UIApplication的shortcutItems赋值的时候不会覆盖
+
+####响应回调
+
+当app在后台的时候UIApplication提供了一个回调方法
+
+```
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler NS_AVAILABLE_IOS(9_0);
+```
+
+我们依据这个回调中的shortcutItem的type和userinfo来做出不同的事件处理,而最后的completionHandler在API的说明中我们看到当应用并非在后台，而是直接重新开进程的时候，直接返回No，那么这个时候，我们的回调会放在
+
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
+
+UIApplication又给我们一个从launchOptions中获取这个shortcutItem的key(UIApplicationLaunchOptionsShortcutItemKey)
+
+```
+UIApplicationShortcutItem *item = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+//根据不同的Action响应不同的事件
+```
+
+在performActionForShortcutItem回调中
+
+```
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler {
+    if (shortcutItem) {
+        //根据不同的Action响应不同的事件
+    }
+    if (completionHandler) {
+        completionHandler(YES);
+    }
+}
+```
+
+####UIKit Peek & Pop
+
+Peek和Pop手势给了iOS9用户预览和体验内容的全新方法。iPhone6s/iPhone6s Plus可通过用户触摸力度感知需求，并给出更加丰富的操作选项。目前这项功能已经在邮件、照片、日历等应用中启用。
+
+根据苹果的介绍，Peek手势允许用户通过短时间按压屏幕进行操作，可在邮件、照片等应用弹出全新功能菜单，给出预览内容。如果按压力度加大，则是Pop手势功能，会让被点击内容完全呈现，这些内容可以是文字、图像、网页以及其他各种内容。简单来说，Peek专注于预览，Pop可以全面展现内容。
+
+![peek_2x.png](/images/ios9_3d_touch/peek_2x.png)
+
+#####1、检测3D Touch是否可用，如果可用就注册
+
+```
+- (void)check3DTouchAvailable {
+    // 如果开启了3D touch，注册
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:(id)self sourceView:_label];
+    }
+}
+```
+
+#####2、实现UIViewControllerPreviewingDelegate的Protocol
+
+①Peek手势相关处理:
+
+```
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)context viewControllerForLocation:(CGPoint)point {
+	//防止重复加入
+    if ([self.presentedViewController isKindOfClass:[PeekDemoViewController class]]){
+        return nil;
+    }
+    else {
+        PeekDemoViewController *peekViewController = [[PeekDemoViewController alloc] init];
+        return peekViewController;
+    }
+}
+```
+
+在PeekDemoViewController中添加previewActionItems：
+
+```
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
+
+    // 生成UIPreviewAction
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Action 1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 1 selected");
+    }];
+    
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Action 2" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 2 selected");
+    }];
+    
+    UIPreviewAction *action3 = [UIPreviewAction actionWithTitle:@"Action 3" style:UIPreviewActionStyleSelected handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Action 3 selected");
+    }];
+    
+    UIPreviewAction *tap1 = [UIPreviewAction actionWithTitle:@"tap 1" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 1 selected");
+    }];
+    
+    UIPreviewAction *tap2 = [UIPreviewAction actionWithTitle:@"tap 2" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 2 selected");
+    }];
+    
+    UIPreviewAction *tap3 = [UIPreviewAction actionWithTitle:@"tap 3" style:UIPreviewActionStyleSelected handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"tap 3 selected");
+    }];
+    
+    //添加到到UIPreviewActionGroup中
+    NSArray *actions = @[action1, action2, action3];
+    NSArray *taps = @[tap1, tap2, tap3];
+    UIPreviewActionGroup *group1 = [UIPreviewActionGroup actionGroupWithTitle:@"Action Group" style:UIPreviewActionStyleDefault actions:actions];
+    UIPreviewActionGroup *group2 = [UIPreviewActionGroup actionGroupWithTitle:@"Tap Group" style:UIPreviewActionStyleDefault actions:taps];
+    NSArray *group = @[group1,group2];
+    
+    return group;
+}
+```
+
+![peek_quick_actions_2x.png](/images/ios9_3d_touch/peek_quick_actions_2x.png)
+
+②Pop手势相关处理:
+
+```
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    PopDemoViewController *popViewController = [[PopDemoViewController alloc] init];
+    [self showViewController:popViewController sender:self];
+}
+```
+
+###参考资料
+
+1.[《Adopting 3D Touch on iPhone》](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/Adopting3DTouchOniPhone/)
+
+2.[《浅谈3D Touch（1） -- Home screen quick action》](http://pingguohe.net/2015/10/08/3D-Touch-1.html)
+
+3.[《浅谈3D Touch（2） -- UITouch && Peek && Pop》](http://pingguohe.net/2015/10/12/3D-Touch-2.html)
+
+4.[《适配3d-touch》](http://www.allenchiang.com/2015/09/21/适配3d-touch之quick-actions/)
+
+5.[《Add iOS 9’s Quick Actions shortcut support in 15 minutes right now !》](http://www.stringcode.co.uk/add-ios-9s-quick-actions-shortcut-support-in-15-minutes-right-now/?utm_campaign=iOS%2BDev%2BWeekly&utm_medium=email&utm_source=iOS_Dev_Weekly_Issue_216)
+
+6.[《15分钟搞定iOS9 Quick Actions》](http://mp.weixin.qq.com/s?__biz=MjM5NDMzMTcxMg==&mid=212175593&idx=1&sn=887118aaa63d4d364ccf16be9e807a72#rd)
+
+7.[《iOS: 3D Touch, impressions and thoughts》](http://szulctomasz.com/3d-touch-impressions-and-thoughts/)
+
+8.[《3D Touch之我见》](http://swift.gg/2015/10/23/3d-touch-impressions-and-thoughts/)
