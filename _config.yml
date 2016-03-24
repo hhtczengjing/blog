@@ -7,7 +7,7 @@ creator: <a href="http://www.devzeng.com">@devzeng</a>
 
 url: "http://blog.devzeng.com"
 
-permalink: :title.html
+permalink: /blog/:title.html
 
 # Format
 highlighter: plain
