@@ -5,9 +5,9 @@ rm -rf _site
 git add .
 git commit -m "update at `date` "
 
-git remote add origin git@github.com:hhtczengjing/hhtczengjing.github.com.git >> /dev/null 2>&1
+git remote add origin git@github.com:hhtczengjing/MyBlogSourceCode.git >> /dev/null 2>&1
 echo "### Pushing Source to Github..."
-git push origin source -f
+git push origin master -f
 echo "### Done"
 
 #提交编译后的代码到Github
