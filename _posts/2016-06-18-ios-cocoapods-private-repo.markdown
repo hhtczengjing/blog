@@ -38,7 +38,7 @@ Spec是Pods索引库，所有公开的Pods都在这个里面，他实际是一�
 
 添加成功之后可以通过`pod repo list`的命令查看，结果如下所示：
 
-![repo-list](repo-list.png)
+![repo-list](/images/ios-cocoapods-private-repo/repo-list.png)
 
 ###编写podspec文件
 
@@ -177,7 +177,7 @@ end
 
 提交完成之后可以通过`pod search Foundation-pd`检验是否成功：
 
-![pod-search](pod-search.png)
+![pod-search](/images/ios-cocoapods-private-repo/pod-search.png)
 
 说明：
 
