@@ -53,7 +53,7 @@ LevelDB提供的是C++的API，可以在`https://rawgit.com/google/leveldb/maste
 为了便于使用和项目集成我将这个和编译好的静态库放在了一起做成一个库。可以直接使用CocoaPods进行集成。
 
 ```
-pod 'leveled-pd', :git => 'https://github.com/hhtczengjing/leveled-pd.git'
+pod 'leveled-pd', :git => 'https://github.com/hhtczengjing/leveldb-pd.git'
 ```
 
 (1)初始化数据库
