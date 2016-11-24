@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "MacOS上Docker的安装和使用初探"
-date: 2016-11-25 10:40:53 +0800
+title: "Mac上Docker的安装和使用初探"
+date: 2016-11-25 00:05:53 +0800
 comments: true
 tags: Docker
 ---
