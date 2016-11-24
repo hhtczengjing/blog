@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "在iOS项目中使用CocoaPods私有库"
-date: 2016-06-18 22:36
+date: 2016-06-18 22:36:53 +0800
 comments: true
 tags: iOS
 ---

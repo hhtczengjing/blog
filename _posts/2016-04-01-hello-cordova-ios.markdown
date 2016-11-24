@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "iOS中Cordova开发初探"
-date: 2016-04-01 22:08
+date: 2016-04-01 22:08:53 +0800
 comments: true
 tags: iOS
 ---

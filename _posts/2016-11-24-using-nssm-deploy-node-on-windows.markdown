@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用NSSM在Windows服务器上部署Node.js应用"
-date: 2016-11-24 10:15
+date: 2016-11-24 10:15:53 +0800
 comments: true
 tags: Node
 ---
