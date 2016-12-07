@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用Scrapy开发爬虫初探"
-date: 2016-12-05 18:40:00 +8000
+date: 2016-12-05 20:40:00 +8000
 comments: true
 tags: Python
 ---
@@ -20,13 +20,13 @@ tags: Python
 
 (1)安装devtoolset
 
-```shell
+```
 yum groupinstall "Development tools"
 ```
 
 (2)安装编译Python需要的包
 
-```shell
+```
 yum install zlib-devel
 yum install bzip2-devel
 yum install openssl-devel
@@ -36,7 +36,7 @@ yum install sqlite-devel
 
 (3)安装MySQL驱动
 
-```shell
+```
 yum install mysql-devel
 ```
 
@@ -44,33 +44,33 @@ yum install mysql-devel
 
 (1)下载Python2.7版本
 
-```shell
+```
 wget --no-check-certificate https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tar.xz
 ```
 
 (2)解压
 
-```shell
+```
 tar -jxvf Python-2.7.11.tar.xz
 cd Python-2.7.11
 ```
 
 (3)安装和编译
 
-```shell
+```
 ./configure --prefix=/usr/local
 make && make altinstall
 ```
 
 (4)将python命令指向最新的
 
-```shell
+```
 ln -s /usr/local/bin/python2.7 /usr/bin/python
 ```
 
 (5)检查Python的版本
 
-```shell
+```
 python --version
 ```
 
@@ -78,7 +78,7 @@ python --version
 
 (1)下载pip安装脚本
 
-```shell
+```
 wget --no-check-certificate https://bootstrap.pypa.io/get-pip.py
 ```
 
