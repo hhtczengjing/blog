@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用Jersey开发REST服务"
-date: 2017-03-19 10:40:00 +8000
+date: 2017-03-18 10:00:00 +8000
 comments: true
 tags: Java
 ---
