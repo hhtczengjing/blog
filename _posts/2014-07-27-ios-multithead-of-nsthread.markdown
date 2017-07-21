@@ -8,10 +8,10 @@ tags: iOS
    
    iOS创建线程的方式有三种，分别是`NSThread`、`NSOperation`和`GCD`。这样三种编程方式从上到下，抽象度层次是由低到高，抽象度越高的使用越简单，也是Apple最推荐使用的。这里主要是介绍NSThread的相关使用要点，后续会继续介绍`NSOperation`和`GCD`的使用方法。 
 
-##创建线程
+## 创建线程
    对于多线程的开发，iOS系统提供了多种不同的接口，先谈谈iOS多线程最基础方面的使用。产生线程的方式姑且分两类，一类是显式调用，另一类是隐式调用。
 
-###显式创建线程
+### 显式创建线程
 
 
 (1)采用NSThread的`detachNewThreadSelector:toTarget:withObject:`的类方法来创建多线程
@@ -46,7 +46,7 @@ MyThread *thread = [[MyThread alloc] init];
 [thread start];
 ```
 
-###隐式创建线程
+### 隐式创建线程
 （1）在后台执行
 
 ```
@@ -65,7 +65,7 @@ MyThread *thread = [[MyThread alloc] init];
 - (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait
 ```
 
-##NSThread的其他方法
+## NSThread的其他方法
 创建的线程是非关联线程（detached thread），即父线程和子线程没有执行依赖关系，父线程结束并不意味子线程结束。
 
 (1)获得当前线程
@@ -111,7 +111,7 @@ MyThread *thread = [[MyThread alloc] init];
 - (BOOL)isFinished; 
 ```
 
-##非线程调用（NSObject的Category方法）
+## 非线程调用（NSObject的Category方法）
 
 即在当前线程执行，注意它们会阻塞当前线程（包括UI线程）：
 
@@ -170,7 +170,7 @@ MyThread *thread = [[MyThread alloc] init];
 ```
 也可以使用NSThread实现同样的功能，loadData相当于NSThread的main方法。
 
-##参考资料
+## 参考资料
 
 1、[《iOS多线程编程之NSThread的使用》](http://blog.csdn.net/totogo2010/article/details/8010231)
 

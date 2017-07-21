@@ -14,7 +14,8 @@ tags: Note
 
 在网上找了很多参考资料，都说使用自签名的SSL证书是可以的，但是需要把证书（最好是CA证书）通过Email或者是配置工具安装到iOS设备上（经过测试其实也是可以直接放在网页上提供用户直接下载的），然后根据之前创建的CA证书创建服务器上用到的证书。其实网上也有很多资料来介绍怎么创建SSL证书的，但是对于对服务器配置不是很熟悉的开发人员来说确实是一个噩梦，这里我整理了一下我这边在配置的时候用的几个步骤只要按照这几个步骤一步步的进行下去就没有什么问题了。
 
-####Step 1.生成CA根证书
+#### Step 1.生成CA根证书
+
 ```
 openssl genrsa -out myCA.key 2048
 openssl req -new -x509 -key myCA.key -out myCA.cer -days 36500
@@ -30,23 +31,27 @@ openssl req -new -x509 -key myCA.key -out myCA.cer -days 36500
 * Common Name (e.g. server FQDN or YOUR name) []:zengjing //服务器名称或者昵称
 * Email Address []:hhtczengjing@gmail.com  //Email地址
 
-####Step 2.生成服务器端私钥和证书请求【CN的内容是服务器的域名或者是IP地址】
+#### Step 2.生成服务器端私钥和证书请求【CN的内容是服务器的域名或者是IP地址】
+
 ```
 openssl genrsa -out server.key 2048
 openssl req -new -out server.req -key server.key -subj /CN=192.168.1.101
 ```
 
-####Step 3.通过CA签发证书
+#### Step 3.通过CA签发证书
+
 ```
 openssl x509 -req -in server.req -out server.cer -CAkey myCA.key -CA myCA.cer -days 36500 -CAcreateserial -CAserial serial
 ```
 
-####Step 4.生成pem格式证书
+#### Step 4.生成pem格式证书
+
 ```
 cat server.cer server.key > server.pem
 ```
 
-####Step 5.生成pkcs12格式证书【这个步骤会提示输入密码的请牢记自己输入的密码后面会用到的】
+#### Step 5.生成pkcs12格式证书【这个步骤会提示输入密码的请牢记自己输入的密码后面会用到的】
+
 ```
 openssl pkcs12 -export -in server.cer -inkey server.key -out tomcat.p12 -name tomcat -CAfile myCA.cer -caname root -chain
 ```
@@ -57,19 +62,26 @@ openssl pkcs12 -export -in server.cer -inkey server.key -out tomcat.p12 -name to
 openssl pkcs12 -export -clcerts -in server.cer -inkey server.key -out iis.pfx
 ```
 
-####Step 6.加入信任证书【需要JAVA JRE环境，如果是iis不需要这个步骤】
+#### Step 6.加入信任证书【需要JAVA JRE环境，如果是iis不需要这个步骤】
+
 ```
 keytool -keystore truststore.jks -keypass 123456 -storepass 123456 -alias ca -import -trustcacerts -file server.pem
 ```
 
 按下回车之后会提示是否信任的，直接输入一个y即可（可能出现中文无法显示?????????֤?? [??]??  y）
 
-####Step 7.配置Tomcat和IIS
+#### Step 7.配置Tomcat和IIS
+
 * Tomcat<br/>
   需要到tomcat的conf目录下面修改server.xml的文件中的部分内容，增加以下部分，端口号8443按照具体的需要来进行设置
   
   ```
-   <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"           maxThreads="150" scheme="https" secure="true"           clientAuth="false" sslProtocol="TLS"            keystoreFile="tomcat.p12" keystorePass="888888" keystoreType="PKCS12"           truststoreFile="truststore.jks"  truststorePass="888888" truststoreType="JKS"/>
-```           
+   <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+           maxThreads="150" scheme="https" secure="true"
+           clientAuth="false" sslProtocol="TLS" 
+           keystoreFile="tomcat.p12" keystorePass="888888" keystoreType="PKCS12"
+           truststoreFile="truststore.jks"  truststorePass="888888" truststoreType="JKS"/>
+```
+           
 * IIS<br/>
   IIS的配置是相当的简单直接在服务器证书那里选择导入pfx就行了，其他的就是创建HTTPS的问题了，在此就不作过多的描述。

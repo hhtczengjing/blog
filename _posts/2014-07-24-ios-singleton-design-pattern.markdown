@@ -7,7 +7,7 @@ tags: iOS
 ---
   在一个iOS应用的生命周期中，有时候我们只需要某个类的一个实例。例如，iOS设备都有一个重力加速计硬件设备，要访问设备在X轴、Y轴和Z轴上的重力加速度，就必然有一个类能够与硬件设备沟通来实时获取这些数据，这个类就是UIAccelerometer。除了实时地获取数据该类还能保持X轴、Y轴和Z轴的状态，但这个类只要一个实例就够了，如果有多个实例就会占用过多的内存。
 
-####单例模式简单实现
+#### 单例模式简单实现
 
 
 在objective-c中要实现一个单例类，至少需要做以下四个步骤：(推荐使用宏的方式来创建)
@@ -46,7 +46,7 @@ static Singleton *_instance = nil;
 
 (4)适当实现allocWitheZone，copyWithZone，release和autorelease.
 
-####GCD方式实现
+#### GCD方式实现
 
 自苹果引入了Grand Central Dispatch (GCD)（Mac OS 10.6和iOS4.0）后，创建单例又有了新的方法，那就是使用dispatch_once函数，具体创建代码如下：
 
@@ -62,7 +62,7 @@ static Singleton *_instance = nil;
 ```
 
 
-####单例模式的应用
+#### 单例模式的应用
 
 (1)UIApplication获取AppDelegate
 

@@ -52,7 +52,7 @@ GitCafe的自定义域名设置比github要友好得多，它不但提供了图�
 ![域名解析](/images/gitcafe/domain_dns.png)
 
 
-##参考资料
+## 参考资料
 
 1、[《将博客从GitHub迁移到GitCafe》](http://devtang.com/blog/2014/06/02/use-gitcafe-to-host-blog/)
 
