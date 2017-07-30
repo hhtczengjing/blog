@@ -26,8 +26,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: 关于, description: 了解更多关于我, url: '#'}
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
+    - {title: 归档, description: 历史文章归档, url: 'archives.html'}
 
 # Pagination
 gems: [jekyll-paginate]

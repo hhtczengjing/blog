@@ -1,0 +1,8 @@
+{% capture category %}{{ post.categories | size }}{% endcapture %}
+<h2 class="post-list__post-title post-title">
+	<a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a>
+</h2>
+<div class="post-list__meta">
+	<time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate class="post-list__meta--date date">{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time> &#8226; <span class="post-list__meta--tags tags">{{ post.tags }}</span>
+</div>
+
