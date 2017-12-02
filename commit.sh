@@ -27,4 +27,4 @@ echo "### Done"
 #git remote add coding git@git.coding.net:zengjing2016/zengjing2016.git >> /dev/null 2>&1
 #echo "### Pushing to coding..."
 #git push coding master:coding-pages -f
-echo "### Done"
+#echo "### Done"
