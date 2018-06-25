@@ -23,8 +23,3 @@ git remote add origin git@github.com:hhtczengjing/hhtczengjing.github.com.git >>
 echo "### Pushing Source to Github..."
 git push origin master -f
 echo "### Done"
-
-#git remote add coding git@git.coding.net:zengjing2016/zengjing2016.git >> /dev/null 2>&1
-#echo "### Pushing to coding..."
-#git push coding master:coding-pages -f
-#echo "### Done"
