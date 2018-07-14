@@ -11,8 +11,8 @@ git push origin master -f
 echo "### Done"
 
 #提交编译后的代码到Github
-bundler exec jekyll clean
-bundler exec jekyll build
+jekyll clean
+jekyll build
 cd _site
 
 git init
