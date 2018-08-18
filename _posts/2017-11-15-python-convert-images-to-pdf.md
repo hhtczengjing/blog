@@ -3,7 +3,7 @@ layout: post
 title: "使用Python合并图片生成PDF文件"
 date: 2017-11-15 10:08
 comments: true
-tags: Note
+tags: Python
 ---
 
 最近做了一个小功能，将一个页面上面的所有图片下载下来生成一个PDF文件。发现了一个非常好用的库reportlab, pyPdf。只需要几行代码就能实现功能，如果没有安装可以通过pip安装：

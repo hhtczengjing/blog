@@ -3,7 +3,7 @@ layout: post
 title: "如何将macOS应用程序打包为dmg文件"
 date: 2018-08-11 11:46:29 +0800
 comments: true
-categories: macOS
+tags: macOS
 ---
 
 之前改写过网上开源的一个JSON转Model的Mac APP，当时是直接使用的是将`.app`格式的文件直接拖到应用里面进行安装的，最近刚好有空就了解了一下dmg文件是怎么打包的，记录下整个的过程方便以后查找。

@@ -3,7 +3,7 @@ layout: post
 title: "如何创建一个私有的Gem库"
 date: 2018-03-12 19:29:36 +0800
 comments: true
-categories: Ruby
+tags: Ruby
 ---
 
 近期看了下[Cocoapods](https://github.com/CocoaPods/CocoaPods)的一部分代码，结合之前做的iOS项目脚手架工具，突发奇想能不能做一个内部的工具库呢（类似于Cocoapods）。

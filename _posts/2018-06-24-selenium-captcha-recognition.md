@@ -3,7 +3,7 @@ layout: post
 title: "使用Selenium获取验证码并识别"
 date: 2018-06-24 11:46:29 +0800
 comments: true
-categories: Note
+tags: Python
 ---
 
 最近项目组提了个需求要求我这边帮他们实现一个网站的数据采集并对接到指定的数据库表里面，记录下使用的在线API识别验证码的过程：

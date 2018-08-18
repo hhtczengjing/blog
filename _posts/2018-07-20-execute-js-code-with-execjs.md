@@ -3,7 +3,7 @@ layout: post
 title: "Python使用pyexecjs执行JS代码"
 date: 2018-07-20 11:46:29 +0800
 comments: true
-categories: Python
+tags: Python
 ---
 
 近期在采集一个网站的时候遇到一部分的页面是使用JS代码来填充数据的，代码如下：

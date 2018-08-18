@@ -3,7 +3,7 @@ layout: post
 title: "使用Python批量将Word文档转换为PDF"
 date: 2018-04-25 11:46:29 +0800
 comments: true
-categories: Note
+tags: Note
 ---
 
 最近一直在整理数据，刚好有一批Word文档需要批量另存为PDF格式的文档，使用`win32com`操作Word，写了个Python的脚本用于批量进行转换。

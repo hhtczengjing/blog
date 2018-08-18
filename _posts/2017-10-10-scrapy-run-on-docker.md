@@ -3,7 +3,7 @@ layout: post
 title: "在Docker上运行Scrapy"
 date: 2017-10-10 10:08
 comments: true
-tags: Note
+tags: Docker
 ---
 
 之前使用Scrapy写过一个空气质量的采集程序，最近要切换到另外一台服务器上面去，折腾了几个小时的安装环境还是没跑起来。几次之后就放弃了，刚好那台服务器上面安装了Docker的环境，运行了一个Nexus的服务几个月来一直都很稳定，那为啥不可以把Scrapy也放在上面运行呢？

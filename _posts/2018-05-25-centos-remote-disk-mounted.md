@@ -3,7 +3,7 @@ layout: post
 title: "CentOS如何挂载远程盘"
 date: 2018-05-25 11:46:29 +0800
 comments: true
-categories: Note
+tags: Note
 ---
 
 前段时间公司要迁移gitlab服务器，由于服务器剩余的空间不太多了，无法直接执行备份，考虑到Linux下面可以挂载其他机器的目录来直接使用，记录下整个操作的过程：
