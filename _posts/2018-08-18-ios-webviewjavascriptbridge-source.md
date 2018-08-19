@@ -3,7 +3,7 @@ layout: post
 title: "iOS中WebViewJavaScriptBridge源码分析"
 date: 2018-08-18 22:46:29 +0800
 comments: true
-categories: iOS
+tags: iOS
 ---
 
 [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge)是一个WebView中JavaScript和Native进行交互的框架，使用这个框架能够实现JavaScript和Objective-C之间进行消息的互通。另外这个框架设计的也是非常的简介，只有如下几个文件：
