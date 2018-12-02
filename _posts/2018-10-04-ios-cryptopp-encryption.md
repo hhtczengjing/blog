@@ -3,7 +3,7 @@ layout: post
 title: "iOS中使用cryptopp进行加解密"
 date: 2018-10-04 18:46:37 +0800
 comments: true
-categories: iOS
+tags: iOS
 ---
 
 [Crypto++](https://www.cryptopp.com)是一个免费开源的加解密库，支持一些非常丰富的加解密算法(如AES/RSA等)。如果要考虑到实现一套跨平台多端加解密效果一致可以考虑使用该库，当然使用各自平台提供的api也能实现。

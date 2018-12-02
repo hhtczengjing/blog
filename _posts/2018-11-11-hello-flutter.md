@@ -3,7 +3,7 @@ layout: post
 title: "Flutter开发初探"
 date: 2018-11-11 18:46:37 +0800
 comments: true
-categories: iOS
+tags: iOS
 ---
 
 [Flutter](https://flutter.io/)是由谷歌创建的一个移动应用SDK，用于构建“现代移动应用”。目前它还处于beta阶段，不过它的文档和相关工具十分齐全，有些移动应用已经在使用Flutter。
