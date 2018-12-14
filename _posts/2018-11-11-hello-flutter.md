@@ -6,7 +6,7 @@ comments: true
 tags: iOS
 ---
 
-[Flutter](https://flutter.io/)是由谷歌创建的一个移动应用SDK，用于构建“现代移动应用”。目前它还处于beta阶段，不过它的文档和相关工具十分齐全，有些移动应用已经在使用Flutter。
+[Flutter](https://flutter.io/)是由谷歌创建的一个框架，用于构建“现代移动应用”。目前它还处于beta阶段，不过它的文档和相关工具十分齐全，有些移动应用已经在使用Flutter。
 
 ### 开发环境搭建
 
