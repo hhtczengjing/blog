@@ -8,7 +8,7 @@ tags: Note
 
 Git 是由 Linux 之父 Linus Tovalds 为了更好地管理linux内核开发而创立的分布式版本控制／软件配置管理软件。目前支持 Windows 、MacOSX 、Linux 等多种主流平台，特点为快速、高效及易于使用。
 
-###在GitHub上创建一个新的repository
+### 在GitHub上创建一个新的repository
 
 1、在浏览器中输入`https://github.com/login`登录GitHub.
 
@@ -34,7 +34,7 @@ Git 是由 Linux 之父 Linus Tovalds 为了更好地管理linux内核开发而�
 
 填写上面的内容完成之后点击`Create repository`的按钮后仓库就创建了，创建的repository的SSHClone路径是：`git@github.com:hhtczengjing/CocoaPodsSample.git`。
 
-###Git基本操作
+### Git基本操作
 
 1、clone仓库到本地
 
@@ -72,7 +72,7 @@ git的状态示例如下：
 
 `git pull`
 
-###Git 常用命令
+### Git 常用命令
 
 1、创建版本库
 
@@ -225,7 +225,7 @@ git的状态示例如下：
 `git push --tags`
 
 
-###参考资料
+### 参考资料
 
 1、[《Create A Repo》](https://help.github.com/articles/create-a-repo/)
 

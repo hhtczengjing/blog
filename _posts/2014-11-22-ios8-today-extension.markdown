@@ -12,7 +12,7 @@ iOS 8系统有6个支持扩展的系统区域，分别是Today、Share、Action�
 
 ![ios8_extension.png](/images/ios8_today_extension/ios8_today_extension.png)
 
-###创建步骤
+### 创建步骤
 
 1、选择`File`->`New`->`Target`创建一个新的Target，如下图所示：
 
@@ -38,7 +38,7 @@ iOS 8系统有6个支持扩展的系统区域，分别是Today、Share、Action�
 
 ![ios8_today_extension_004.png](/images/ios8_today_extension/ios8_today_extension_004.png)
 
-###开发实例
+### 开发实例
 
 1、配置Info.plist文件，使用代码布局
 
@@ -191,7 +191,7 @@ Xcode6中新建的Today Extension默认是使用StoryBoard布局的，如果需�
 }
 ```
 
-###参考资料
+### 参考资料
 
 1、[《iOS 8 Extensions》](http://www.cnblogs.com/xdream86/p/3855932.html)
 

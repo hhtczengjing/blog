@@ -12,7 +12,7 @@ tags: iOS
 
 一直想把公司的项目中常用到的一些代码提取出来做成公用的库(同一套代码每个项目中都基本上会用到，而且每次改动之后所有的项目都需要进行同步修改，特别繁琐)，恰好最近在调整新项目的代码，趁着这个机会就整理了一下代码。因为有些代码是公司级别的所以不能直接使用CocoaPods的Spec，需要把代码托管在公司的内部服务器上面，使用CocoaPod私有的Spec。之前写过一篇笔记[《使用CocoaPods管理iOS项目中的依赖库》](http://.devzeng.com/blog/ios-cocoapods-dependency-manager.html)，介绍如何安装CocoaPods如何在项目中使用。本文主要是介绍如何搭建和使用私有库。
 
-###创建私有的Spec仓库
+### 创建私有的Spec仓库
 
 1.在Git上创建Spec仓库
 
@@ -40,9 +40,9 @@ Spec是Pods索引库，所有公开的Pods都在这个里面，他实际是一�
 
 ![repo-list](/images/ios-cocoapods-private-repo/repo-list.png)
 
-###编写podspec文件
+### 编写podspec文件
 
-####1.搭建项目的结构，创建podspec文件
+#### 1.搭建项目的结构，创建podspec文件
 
 `podspec`是一个配置文件，该文件描述了一个库是怎样被添加到工程中的。在这个配置文件里面配置了：库文件的名称、源码存放路径、版本号、依赖库和编译条件等。为了避免写错，建议使用命令行的方式生成。
 
@@ -59,7 +59,7 @@ Foundation-pd
   └── README.md(一些说明信息)
 ```
 
-####2.提交代码到git服务器
+#### 2.提交代码到git服务器
 
 (1)提交代码到远程仓库
 
@@ -76,7 +76,7 @@ git tag -a 0.1.0 -m 'v0.1.0' HEAD
 git push origin tag 0.1.0
 ```
 
-####3.编写podspec文件
+#### 3.编写podspec文件
 
 示例podspec内容如下，建议参考CocoaPods上面的来做，照着那些第三库的podspec文件写就行了：
 
@@ -165,13 +165,13 @@ end
 
 语法说明请参考：[《Podspec Syntax Reference》](https://guides.cocoapods.org/syntax/podspec.html)
 
-###提交podspec文件到Spec仓库
+### 提交podspec文件到Spec仓库
 
-####1.检查podspec文件是否正确
+#### 1.检查podspec文件是否正确
 
 `pod spec lint Foundation-pd.podspec --verbose --sources='git@gitlab.com:zengjing/Specs.git,https://github.com/CocoaPods/Specs' --use-libraries`
 
-####2.提交podspec文件到Spec库
+#### 2.提交podspec文件到Spec库
 
 `pod repo push zengjing-spec Foundation-pd.podspec --verbose --sources='git@gitlab.com:zengjing/Specs.git,https://github.com/CocoaPods/Specs' --use-libraries --allow-warnings`
 
@@ -196,7 +196,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'git@gitlab.com:zengjing/Specs.git'
 ```
 
-###参考资料
+### 参考资料
 
 1.[《使用Cocoapods创建私有podspec》](http://blog.wtlucky.com/blog/2015/02/26/create-private-podspec/)
 

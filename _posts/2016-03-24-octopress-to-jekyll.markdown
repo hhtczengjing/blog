@@ -14,15 +14,15 @@ tags: Note
 
 ![onevcat.png](/images/octopress_jekyll/onevcat.png)
 
-###安装Vno Jekyll
+### 安装Vno Jekyll
 
-####（1）从GitHub把项目的源码clone下来
+#### （1）从GitHub把项目的源码clone下来
 
 ```
 git clone https://github.com/onevcat/vno-jekyll.git blog_site
 ```
 
-####（2）安装相关依赖工具
+#### （2）安装相关依赖工具
 
 ``` 
 sudo gem install bundler
@@ -31,7 +31,7 @@ bundle install
 
 如果之前安装过bundler，可以先使用`sudo gem uninstall bundler`卸载然后再执行上面的命令安装。
 
-####（3）启动服务
+#### （3）启动服务
 
 ```
 bundler exec jekyll serve
@@ -84,7 +84,7 @@ git push coding master:coding-pages -f
 echo "### Done"
 ```
 
-###参考资料
+### 参考资料
 
 1、[《Vno Jekyll源码》](https://github.com/onevcat/vno-jekyll)
 

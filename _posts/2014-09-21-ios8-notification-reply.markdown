@@ -27,7 +27,7 @@ iOS8拥有了全新的通知中心，有全新的通知机制。当屏幕顶部�
 
 最近在网上找了点资料，对这个功能进行了一下简单的实现，具体的步骤如下：
 
-##创建步骤
+## 创建步骤
 
 在`AppDelegate`中的`didFinishLaunchingWithOptions`，按照下面的步骤加入各个代码片段：
 
@@ -76,7 +76,7 @@ UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTy
 ```
 说明：`Push数据包之前能带的数据最多为256字节，现在APPLE将该数值放大到2KB。`
 
-##按钮处理事件
+## 按钮处理事件
 
 1.以本地通知为例介绍怎么处理，如下代码是发起本地通知事件：
 
@@ -114,6 +114,6 @@ notification.category = @"alert";
 
 运行之后要按`shift + command + H`，让程序推到后台，或者按`command+L`让模拟器锁屏，才会看到效果！如果是程序退到后台了，收到消息后下拉消息，则会出现刚才添加的两个按钮；如果是锁屏了，则出现消息后，左划就会出现刚才添加的两个按钮。
 
-##参考资料
+## 参考资料
 
 1、[《iOS8推送消息的快速回复处理》](http://blog.csdn.net/yujianxiang666/article/details/35260135)

@@ -10,7 +10,7 @@ tags: iOS
 
 ![console_log.png](/images/ios_logging_tools/console_log.png)
 
-###使用宏来处理
+### 使用宏来处理
 
 常用的做法是在PCH文件添加如下的代码：
 
@@ -23,13 +23,13 @@ tags: iOS
 ```
 然后将NSLog替换为DebugLog即可。
 
-###使用CocoaLumberjack替代NSLog
+### 使用CocoaLumberjack替代NSLog
 
 ![LumberjackLogo.png](/images/ios_logging_tools/LumberjackLogo.png)
 
 CocoaLumberjack是Mac和iOS上一个集快捷、简单、强大和灵活于一身的日志框架。CocoaLumberjack类似于流行的日志框架（如log4j），但它是专为Objective-C设计的，利用了多线程、GCD（如果可用）、无锁原子操作Objective-C运行时的动态特性。
 
-####CocoaLumberjack基本组件
+#### CocoaLumberjack基本组件
 
 CocoaLumberjack是由`DDASLLogger`、`DDTTYLogger`和`DDFileLogger`三个Log组件组成，各自的功能描述如下：
 
@@ -37,7 +37,7 @@ CocoaLumberjack是由`DDASLLogger`、`DDTTYLogger`和`DDFileLogger`三个Log组�
 - DDTTYLogger：支持将调试语句写入xCode控制台。在iOS开发中使用。
 - DDFileLogger：支持将调试语句写入到文件系统。。
 
-####1、快速集成
+#### 1、快速集成
 
 （1）下载CocoaLumberjack，引入CocoaLumberjack的头文件
 
@@ -76,7 +76,7 @@ DDLogDebug(@"[Debug]:%@", @"输出调试信息");//输出调试信息
 DDLogVerbose(@"[Verbose]:%@", @"输出详细信息");//输出详细信息
 ```
 
-####2、结合XcodeColor让日志带上颜色
+#### 2、结合XcodeColor让日志带上颜色
 
 有了解过Android开发的朋友都会知道，在Android开发中LogCat的日志查看功能是十分强大的，特别是不同级别的日志输出显示的颜色是不同的，例如错误信息的颜色是红色的，其实在Xcode中结合XcodeColor插件也是可以实现该效果的，具体的配置步骤如下：
 
@@ -119,7 +119,7 @@ DDLogVerbose(@"Verbose");//默认是黑色
 
 ![xcode_color_config.png](/images/ios_logging_tools/xcode_color_config.png)
 
-###参考资料
+### 参考资料
 
 1、[《XcodeColors.md》](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/XcodeColors.md)
 

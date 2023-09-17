@@ -12,7 +12,7 @@ tags: WeChat
 
 将应用设置在回调模式时，企业可以通过回调URL接收员工回复的消息，以及员工关注、点击菜单、上报地理位置等事件。在接收到事件后，企业可以发送被动响应消息，实现员工与企业的互动。企业在接收消息，以及发送被动响应消息时，数据包以xml格式组成，以AES方式加密传输。本文主要介绍如何处理接收到的消息和事件。
 
-###消息与事件的类型
+### 消息与事件的类型
 
 1、事件
 
@@ -201,7 +201,7 @@ Event对应的事件类型有：
 
 ![inmessage_text_type.png](/images/wechat_qyh_inmessage/inmessage_type_msg_location.png)
 
-###消息与事件的接收和解析
+### 消息与事件的接收和解析
 
 1、通过网站上配置的信息初始化加解密的工具
 
@@ -264,9 +264,10 @@ public static WeChatInMessage parsingInMessage(String responseInputString) {
 	xs.ignoreUnknownElements();
 	xs.alias("xml", WeChatInMessage.class);
 	WeChatInMessage msg = (WeChatInMessage) xs.fromXML(responseInputString);
-	return msg;}
+	return msg;
+}
 ```
 
-###参考资料
+### 参考资料
 
 1、[《接收消息与事件》](http://qydev.weixin.qq.com/wiki/index.php?title=接收消息与事件)

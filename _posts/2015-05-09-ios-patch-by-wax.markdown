@@ -28,7 +28,7 @@ Lua是一个小巧的脚本语言。是巴西里约热内卢天主教大学（Po
 
 - Lua内置正则表达式的匹配的工具
 
-###Xcode快速集成Wax
+### Xcode快速集成Wax
 
 [`WaxPatch`](http://github.com/mmin18/WaxPatch)是来自大众点评的屠毅敏开源的项目，通过修改wax的实现达到动态打Patch的功能。主要是修改了wax中的`wax_instance.m`文件。具体做法是：在wax中加入了`class_replaceMethod`来替换原始实现。项目实现了在程序启动时会从指定地址下载一个包含所有Lua补丁的zip包，通过Wax加载后改变了既有Objective-C实现方法的指向函数，从而改变了程序的行为。
 
@@ -103,7 +103,7 @@ wax_start("patch", luaopen_wax_http, luaopen_wax_json, nil);
 
 3、完整示例程序稍后会同步到GitHub上
 
-###参考资料
+### 参考资料
 
 1、[《如何创建更加灵活的App》](https://github.com/mmin18/Create-a-More-Flexible-App)
 

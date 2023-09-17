@@ -19,6 +19,7 @@ tags: iOS
 ```
 unzip wechat.ipa
 ```
+
 (2)将Payload目录下面的_CodeSignature文件夹删除
 
 ```
@@ -36,6 +37,7 @@ cp embedded.mobileprovision Payload/*.app/embedded.mobileprovision
 ```
 /usr/bin/codesign -f -s "iPhone Distribution: XXXXXX" --resource-rules Payload/*.app/ResourceRules.plist Payload/*.app/
 ```
+
 (5)重新打包
 
 ```

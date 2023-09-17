@@ -8,7 +8,7 @@ tags: iOS
 
 二维码（Two-dimensional code），又称二维条码，它是用特定的几何图形按一定规律在平面（二维方向）上分布的黑白相间的图形，是所有信息数据的一把钥匙。在现代商业活动中，可实现的应用十分广泛，如：产品防伪/溯源、广告推送、网站链接、数据下载、商品交易、定位/导航、电子凭证、车辆管理、信息传递、名片交流、wifi共享等。如今智能手机扫一扫功能的应用使得二维码更加普遍。
 
-##ZXing
+## ZXing
    [ZXing](https://github.com/zxing/zxing)是一个开源的条码生成和扫描库，支持众多的条码格式，而且有各种语言的实现版本，支持的语言包括Java、C++、C#、Objective-C等，但是目前已经不再维护。
   
 1、下载ZXing源码，对源码工程进行处理
@@ -120,7 +120,7 @@ tags: iOS
 }
 ```
 
-##iOS7中自带的AVFoundation
+## iOS7中自带的AVFoundation
 
 1、创建AVCaptureSession对象
 
@@ -176,7 +176,7 @@ tags: iOS
 }
 ```
 
-##参考资料
+## 参考资料
 
 1、[《在iOS中使用ZXing库》](http://www.devtang.com/blog/2012/12/23/use-zxing-library/)
 

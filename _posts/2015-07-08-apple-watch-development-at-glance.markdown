@@ -10,7 +10,7 @@ tags: iOS
 
 自发布iOS8.2 SDK和Xcode6.2来，大家对于WatchKit的关注就不绝于耳。特别随着Apple Watch的发售一大批的Apple Watch的应用就如雨后春笋一般涌入AppStore。本文对[《WatchKit Programming Guide》](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide)中提到的相关概念结合目前的各方资料进行整理，重点介绍在Apple Watch开发中的一些基本概念和数据通信方面的内容。
 
-###配置Xcode添加Watch应用
+### 配置Xcode添加Watch应用
 
 1、使用最新的Xcode(Xcode 6.2及以上)打开现有的iOS项目
 
@@ -36,7 +36,7 @@ tags: iOS
 
 (2)上面的结构图描述了iOS App、WatchKit Extension和Watch App三者之间的依赖关系。WatchKit依赖于iOS应用，而其同时又被Watch应用依赖。编译iOS应用将会将这三个对象同时编译并打包。其中Watch App运行在Watch上，只包含Storyboards和资源文件；WatchKit Extension运行在iPhone上，和对应的iPhone App在一起。用户点击Watch App后，与Watch匹配的iPhone会启动WatchKit Extension，然后和Watch建立连接，然后两者可以进行交互。
 
-###iPhone App、WatchKit Extension和Watch App之间的关系
+### iPhone App、WatchKit Extension和Watch App之间的关系
 
 自iOS8起Apple推出一个新的概念-App Extension,可以让开发者开发第三方的键盘、通知中心（Today Widget）等。
 
@@ -96,7 +96,7 @@ self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIde
 [self.wormhole passMessageObject:@{@"name":@"zengjing"} identifier:@"user"];
 ```
 
-###Watch App的启动过程和生命周期
+### Watch App的启动过程和生命周期
 
 当用户在Apple Watch上运行应用时，用户的iPhone会自行启动相应的WatchKit应用扩展。通过一系列的信号交换，Watch App和WatchKit Extension互相连接，因此消息能够在二者之间流通，直到用户停止与应用进行交互为止。此时，iOS将暂停应用扩展的运行。
 
@@ -124,7 +124,7 @@ self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIde
 
 说明：glances不支持动作方法。单击应用glance始终会启动应用。
 
-###App Group配置
+### App Group配置
 
 1、打开开发者中心后台,选择Certificates, Identifiers & Profiles
 
@@ -144,7 +144,7 @@ self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:kGroupIde
 
 ![app_groups_4.png](/images/apple_watch_dev_glance/app_groups_4.png)
 
-###参考资料
+### 参考资料
 
 1、[《Apple Watch开发初探》](http://nilsun.github.io/apple-watch/)
 

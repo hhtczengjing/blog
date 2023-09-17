@@ -8,7 +8,7 @@ tags: Java
 
 `JNDI(Java Naming and Directory Interface,Java命名与目录接口)`是Java提供的一种标准的命名系统接口，JNDI提供统一的客户端API，通过不同的访问提供者接口`JNDI SPI(Service Provider Interface,服务提供者接口)`的实现，由管理者将JNDI API映射为特定的命名服务和目录系统，使得Java应用程序可以和这些命名服务和目录服务之间进行交互。
 
-##使用传统的方式
+## 使用传统的方式
 
 一般对于普通的项目，习惯上使用`.properties`的文件来配置数据源的一些信息。在`.properties`文件中配置数据源连接字符串、用户名、密码和驱动的类，然后在代码中读取配置文件的信息再通过`DriverManager.getConnection(url,  username, password)`的方式获取数据源连接对象，步骤如下,以SQLServer为例:
 
@@ -41,7 +41,7 @@ public static Connection getDefaultConnection() {
 }
 ```
 
-##使用JNDI的方式
+## 使用JNDI的方式
 
 1、获取数据源的连接对象`Connection`
 
@@ -75,6 +75,7 @@ public static Connection getConnection(String jndi) {
 	return connection;
 }
 ```
+
 2、在Tomcat中的webapp中加入`Resource`配置
 
 ```
@@ -89,6 +90,7 @@ public static Connection getConnection(String jndi) {
 	driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 	url="jdbc:sqlserver://localhost:1433;databasename=DBNAME"/>
 ```
+
 常见配置属性描述:
 
 - name：JDBC数据源的名称
@@ -141,7 +143,7 @@ Connection conn = getConnection("sqlserver/default");
 ...
 ```
 
-##参考资料
+## 参考资料
 
 1、[《Java使用JNDI技术获取DataSource对象》](http://www.cnblogs.com/cyjch/archive/2012/03/28/2420806.html)
 

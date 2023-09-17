@@ -16,7 +16,7 @@ Facebook在React.js Conf 2015大会(2015.3.26)上开源了React Native。最开�
 
 本文主要是介绍React Native在本人开发中的一些实践，React Native的详细使用是一个很庞大的话题，本文不会详细介绍，建议仔细阅读官方的文档和示例程序。
 
-###React Native背景
+### React Native背景
 
 > What we really want is the **user experience** of the **native mobile** platforms, combined with the **developer experience** we have when building with **React** on the web.
 
@@ -28,7 +28,7 @@ Facebook在React.js Conf 2015大会(2015.3.26)上开源了React Native。最开�
 
 上面的这段话也是摘自[《Introducing React Native》](http://facebook.github.io/react/blog/2015/03/26/introducing-react-native.html)，在软件开发中最理想的情况是像Java这样“write once, run anywhere”，但是不同的平台有不同的用户体验(looks, feels, and capabilities)，过分要求应用在不同的平台上的一致性是不太合适的。React Native提出了一种理念，learn once, write anywhere， 可以在不同平台上编写基于React的代码。
 
-###开发环境配置
+### 开发环境配置
 
 1.需要一台Mac(OSX)，上面要安装Xcode(建议Xcode7及以上的版本)，Xcode可以在Mac App Store下载
 
@@ -62,20 +62,21 @@ Facebook在React.js Conf 2015大会(2015.3.26)上开源了React Native。最开�
 
 ok，按照以上步骤，你应该已经配置好了环境。
 
-###在现有项目中集成
+### 在现有项目中集成
 
-####1.CocoaPods
+#### 1.CocoaPods
 
 推荐使用CocoaPods的方式进行集成，如果没有使用过，可以参考[《使用CocoaPods管理iOS项目中的依赖库》](http://blog.devzeng.com/blog/ios-cocoapods-dependency-manager.html)这篇文章安装配置。
 
-####2.安装react-native package
+#### 2.安装react-native package
+
 react native现在使用npm的方式进行安装
 
 (1)如果没有安装Node.js,需要按照前面的方式进行安装
 
 (2)安装完Node.js之后再项目根目录(.xcodeproj文件所在目录)下执行`npm install react-native`的命令，执行完成之后会创建一个node_modules的文件夹。
 
-####3.修改Podfile配置
+#### 3.修改Podfile配置
 
 在项目根目录下的Podfile（如果没有该文件可以使用pod init命令生成）文件中加入如下代码：
 
@@ -91,7 +92,7 @@ pod 'React', :path => './node_modules/react-native', :subspecs => [
 ```
 如果你在项目中使用了`<Text>`的组件，那么你必须添加`RCTText`的subspecs。配置完成之后执行`pod install`即可。
 
-####4.编写React Native代码
+#### 4.编写React Native代码
 
 (1)在项目的根目录创建存放React Native代码的目录：
 
@@ -171,7 +172,7 @@ NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtens
 
 `curl http://localhost:8081/index.ios.bundle -o main.jsbundle`
 
-####6.启动Development Server
+#### 6.启动Development Server
 
 终端进入项目所在根目录，执行下面的代码
 
@@ -180,7 +181,7 @@ NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtens
 ```
 启动完成之后可以通过：`http://localhost:8081/index.ios.bundle`进行调用
 
-###Native和React的交互
+### Native和React的交互
 
 关于React Native的通信机制，这里不再介绍，推荐两篇文章：
 
@@ -216,7 +217,7 @@ RCT_EXPORT_MODULE();
 @end
 ```
 
-####1.JavaScript调用Native Method
+#### 1.JavaScript调用Native Method
 
 (1)Native的Module中使用RCT_EXPORT_METHOD()标记方法:
 
@@ -233,7 +234,7 @@ var CalendarManager = require('react-native').NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 ```
 
-####2.Native发送Events -> JavaScript
+#### 2.Native发送Events -> JavaScript
 
 在西北督查中心项目表单的填写页面上右上角放了一个提交按钮，点击提交按钮后iOS的Objective-C会向React的Javascript代码发送消息，代码示例如下：
 
@@ -256,7 +257,7 @@ subscription.remove();
 
 更多用法请参考官方文档中关于Native Modules的介绍[《Native Modules》](http://facebook.github.io/react-native/docs/native-modules-ios.html#content)
 
-###参考资料
+### 参考资料
 
 1.[《React Native官方文档》](http://facebook.github.io/react-native/)
 

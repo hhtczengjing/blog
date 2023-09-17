@@ -16,18 +16,19 @@ LevelDB开源并托管在GitHub上，项目的地址是：[https://github.com/go
 
 结果显示，在顺序读写和随机写上，LevelDB 在性能上都遥遥领先。
 
-###编译iOS静态库
+### 编译iOS静态库
 
-####1.下载代码到本地
+#### 1.下载代码到本地
 
 `git clone https://github.com/google/leveldb.git`
 
-####2.编译项目代码
+#### 2.编译项目代码
 
 ```
 cd leveldb
 CXXFLAGS=-stdlib=libc++ make PLATFORM=IOS
 ```
+
 如果出现如下报错信息：
 
 ```
@@ -46,7 +47,7 @@ make: *** [/db/builder.o] Error 1
 
 （3）头文件在`include`目录下面，后面会用到
 
-###在iOS中使用LevelDB
+### 在iOS中使用LevelDB
 
 LevelDB提供的是C++的API，可以在`https://rawgit.com/google/leveldb/master/doc/index.html`这里查到具体的使用说明。使用C++确实是不太方便幸好有大神将这些接口使用Objective-C进行了一下包装，使用方式和NSUserDefaults一致，可以参考[《轻量级的KV数据库LevelDB在Objective-C上的应用》](http://www.tanhao.me/pieces/1397.html)这篇文章。
 
@@ -78,7 +79,7 @@ NSString *str = [myLevelDB stringForKey:@"username"];
 
 没错就是这样方便。
 
-###参考资料
+### 参考资料
 
 1.[《Github Project Home》](https://github.com/google/leveldb)
 

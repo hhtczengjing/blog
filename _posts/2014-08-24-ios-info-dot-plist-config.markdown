@@ -8,7 +8,7 @@ tags: iOS
 
 在创建一个新的Xcode工程后，会在`Supporting Files`文件夹下自动生成一个`工程名-Info.plist`的文件，这个是对工程做一些运行期配置的文件(很重要，必须有该文件)。如果使用文本编辑器打开这个文件，会发现这是一个XML格式的文本文件，使用Xcode的`Open As`->`Source Code`或者`Property List`可以进行编辑，本文会重点介绍一些在iOS开发中常见的的Info.plist的配置项。
 
-##Info.plist配置项说明
+## Info.plist配置项说明
 
 1、设置启动图标(`CFBundleIcons`)
 
@@ -87,6 +87,7 @@ tags: iOS
 	<string>黑体_GB2312.ttf</string>
 </array>
 ```
+
 P.S关于如何使用系统支持的字体信息:
 
 (1)在调用字体的时候，要使用字体名。字体名不是文件名，而是字体的`Family Name`。Family Name可以在Font Book中查看。
@@ -158,7 +159,7 @@ iOS应用程序支持以下四个方向的设置：`UIInterfaceOrientationPortra
 <true/>
 ```
 
-##参考资料
+## 参考资料
 
 1、[《Information Property List Key Reference》](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW1)
 

@@ -14,7 +14,7 @@ iOS应用程序在上线过程中可能会出现各种闪退，如果APP经常�
 
 ![bugly介绍](/images/ios-plcrashreporter/bugly_introduction_2.png)
 
-###使用系统自带的Crash收集
+### 使用系统自带的Crash收集
 
 ```
 //需要捕获的signal
@@ -58,7 +58,7 @@ int main(int argc, char * argv[]) {
 }
 ```
 
-###使用PLCrashReporter收集
+### 使用PLCrashReporter收集
 
 [PLCrashReporter](https://www.plcrashreporter.org)是一个开源的崩溃日志收集的库，很多崩溃收集的第三方服务都是基于PLCrashReporter来实现的。
 
@@ -129,9 +129,9 @@ if (![crashReporter enableCrashReporterAndReturnError: &error]) {
 }
 ```
 
-###分析Crash Report
+### 分析Crash Report
 
-####（1）获取PLCrashReporter收集到的crash文件
+#### （1）获取PLCrashReporter收集到的crash文件
 
 通过PLCrashReporter的`- (NSData *)loadPendingCrashReportDataAndReturnError:(NSError **)outError;`方法获取到的NSData格式的数据是通过protobuf处理过的数据,需要使用工具进行转换处理。
 
@@ -145,7 +145,7 @@ if (![crashReporter enableCrashReporterAndReturnError: &error]) {
 
 - 2）example_report.plcrash文件指的是前面的NSData保存的文件
 
-####（2）获取dsym文件
+#### （2）获取dsym文件
 
 Xcode编译项目后，我们会看到一个同名的dSYM文件，dSYM是保存16进制函数地址映射信息的中转文件，我们调试的symbols都会包含在这个文件中，并且每次编译项目的时候都会生成一个新的dSYM文件，位于`/Users/<用户名>/Library/Developer/Xcode/Archives`目录下，对于每一个发布版本我们都很有必要保存对应的Archives文件.
 
@@ -161,7 +161,7 @@ Xcode编译项目后，我们会看到一个同名的dSYM文件，dSYM是保存1
 
 3）crash文件内第一行`Incident Identifier`就是该crash文件的UUID。
 
-####（3）使用symbolicatecrash分析
+#### （3）使用symbolicatecrash分析
 
 Xcode 7.3中symbolicatecrash工具存放的路径是：
 
@@ -175,13 +175,13 @@ Xcode 7.3中symbolicatecrash工具存放的路径是：
 
 `./symbolicatecrash crash.log xxx.app.dSYM > result.log` (xxx代表你的项目名)
 
-####（4）
+#### （4）使用atos分析
 
 `xcrun atos -o xxx.app/xxx -l 0x11111111` (xxx代表你的项目名, 0x11111111表示要分析的地址)，推荐使用`dSYM 文件分析工具`(下载地址：http://pan.baidu.com/s/1bnkxPvT)
 
 ![dSYM 文件分析工具](/images/ios-plcrashreporter/dsym_tool.png)
 
-###参考资料
+### 参考资料
 
 1.[《PLCrashReporter Documentation》](https://www.plcrashreporter.org/documentation)
 

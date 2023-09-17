@@ -5,7 +5,8 @@ date: 2014-07-20 18:07:16 +0800
 comments: true
 tags: iOS
 ---
-   在iOS开发计划中有一种是`iOS Developer Enterprise Program(iOS开发者企业级计划)`，对于这种开发者证书发布的应用程序是无法上传到Apple App Store上的，目前对于这种企业级开发的应用程序最好的分发方式是部署到内网服务器上通过网络进行下载。
+
+在iOS开发计划中有一种是`iOS Developer Enterprise Program(iOS开发者企业级计划)`，对于这种开发者证书发布的应用程序是无法上传到Apple App Store上的，目前对于这种企业级开发的应用程序最好的分发方式是部署到内网服务器上通过网络进行下载。
 
 #### IN-HOUSE应用程序分发
 

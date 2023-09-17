@@ -12,7 +12,7 @@ tags: iOS
 
 SQLite本身是支持加密功能的（免费版本不提供加密功能，商业版本是支持加密模块）。SQLCipher是一个开源的SQLite加密扩展，支持对db文件进行256位的AES加密。
 
-###集成SQLCipher
+### 集成SQLCipher
 
 集成SQLCipher有有两种方法一种是按照[官方](https://www.zetetic.net/sqlcipher/ios-tutorial/)的方式一步步的执行，这里就不过多的介绍。配置过程很麻烦，推荐使用下面的方式集成。
 
@@ -68,7 +68,7 @@ sqlite3_key(_db, key, (int)strlen(key));
 (2)使用了加密模块在提交到App Store时需要指明，具体的操作方法可以参考StackOverflow上面的做法。
 [Does my application “contain encryption”?](http://stackoverflow.com/questions/2135081/does-my-application-contain-encryption)
 
-###参考资料
+### 参考资料
 
 1、[《Adding SQLCipher to Xcode Projects》](https://www.zetetic.net/sqlcipher/ios-tutorial/)
 

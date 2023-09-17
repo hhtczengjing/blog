@@ -53,9 +53,9 @@ tags: iOS
 ```
 这样的替换，而且对于一些特殊的字符还需要进行特殊处理等，实在不是太友好，这样就需要一个引擎来专门处理这些事情，本文主要介绍`MGTemplateEngine`和`GRMustache`的使用。
 
-###使用模板引擎
+### 使用模板引擎
 
-####MGTemplateEngine的使用
+#### MGTemplateEngine的使用
 
 [MGTemplateEngine](http://mattgemmell.com/mgtemplateengine-templates-with-cocoa/)是[`Matt Gemmell`](https://github.com/mattgemmell)的作品，它是一个比较流行的模板引擎，它的模板语言比较类似于`Smarty`、`FreeMarker`和`Django`。另外它可以支持自定义的Filter（以便实现自定义的渲染逻辑），需要依赖正则表达式的工具类`RegexKit`。
 
@@ -106,7 +106,7 @@ tags: iOS
 
 （3）MGTemplateEngine在GitHub上的地址为`https://github.com/mattgemmell/MGTemplateEngine`。
  
-####GRMustache的使用  
+#### GRMustache的使用  
 
 相比`MGTemplateEngine`来说`GRMustache`简单不少，
 
@@ -131,7 +131,7 @@ tags: iOS
 
 （2）GRMustache在GitHub上的地址为`https://github.com/groue/GRMustache`
 
-###参考资料
+### 参考资料
 
 1、[《MGTemplateEngine - Templates with Cocoa》](http://mattgemmell.com/mgtemplateengine-templates-with-cocoa/)
 

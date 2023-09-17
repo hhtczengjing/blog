@@ -46,7 +46,7 @@ NSLog(@"%@", [[intNum class] description]);
 
 最好的就是把这些子类写成私有的类，所有对外都在NSNumber中调用即可，对于使用者来说就轻松很多。
 
-##在iOS中的应用
+## 在iOS中的应用
 
 现在很多应用需要同时兼容iOS6、iOS7目前还需要针对iOS8进行适配。适配iOS7不是简单的让APP在iOS7的系统上运行正常，而是需要按照苹果官方的推荐设计指南进行重新设计，这样就给开发者带来很多的工作量。对于iOS6之前应用的样式都差不多，而针对iOS7设计了新的样式，为了同时支持iOS6和iOS7，也在各个系统上显示的效果符合系统原生的风格，就可以采用类簇的设计进行设计。
 
@@ -155,7 +155,7 @@ DemoView *demoView = [[DemoView alloc] init];
 [self.view addSubView: demoView];
 ```
 
-##参考资料
+## 参考资料
 
 1、[《类簇在iOS开发中的应用》](http://limboy.me/ios/2014/01/04/class-cluster.html)
 

@@ -8,7 +8,7 @@ tags: iOS
 
    在iOS的SDK中提供了一个非常有意思的功能，它能将iOS的Application同自定义的URL Schema绑定，同时可以通过`URL Scheme`在浏览器或者是其他应用中启动这个Application。本文主要介绍如何通过URL Scheme的方式启动应用和参数的传递。
 
-##创建URL Scheme
+## 创建URL Scheme
 
 1、首先在*-Info.plist中添加一行,选择`URL types`，效果如下图所示：
 
@@ -47,7 +47,7 @@ tags: iOS
 ```
 
 
-##使用URL Scheme
+## 使用URL Scheme
 
 1、在Safari中使用
 
@@ -107,7 +107,7 @@ NSString *customURL = @"devzeng://";
 }
 ```
 
-##参考资料
+## 参考资料
 1、[《通过自定义的URL Scheme启动你的App》](http://blog.csdn.net/ba_jie/article/details/6884818)
 
 2、[《The Complete Tutorial on iOS/iPhone Custom URL Schemes》](http://iosdevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html)

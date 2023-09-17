@@ -18,7 +18,7 @@ tags: iOS
 ![CocoaPods Logo](/images/ios_cocoapods/cocoapods_logo.png)
 
 
-##安装CocoaPods
+## 安装CocoaPods
 
 CocoaPods是使用
 
@@ -57,7 +57,7 @@ https://ruby.taobao.org
 (2)`pod setup`是将`Spec`项目复制到当前用户的`.cocoapods/master`目录下，其实就相当于将CocoaPods所管理的一些第三方的库的描述文件同步一份到本地，便于进行查询和安装，以后更新新版本的Spec项目只需要再次执行`pod setup`即可 。
 
 
-##使用CocoaPods
+## 使用CocoaPods
 
 1、使用CocoaPods管理第三方库
 
@@ -104,7 +104,7 @@ CocoaPods会自动帮你把Podfile文件中列出来的第三方库全部下载�
      - AFNetworking/UIKit (2.3.1)
 ```
 
-##其他配置
+## 其他配置
 
 在日常开发中执行`pod install/update`时总是长时间停留在`Analyzing dependencies`上。这是因为在使用CocoaPods进行`update`或者`install`的时候每次会更新获取的`pod specs`。
 
@@ -127,7 +127,7 @@ pod repo update
 `pod update --verbose --no-repo-update`
 
 
-##参考资料
+## 参考资料
 
 1、[《IOS 第三方管理库管理 CocoaPods》](http://www.cnblogs.com/superhappy/archive/2013/04/23/3038493.html)
 

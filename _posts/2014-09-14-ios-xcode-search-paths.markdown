@@ -10,7 +10,7 @@ tags: iOS
 
 ![ios-search-paths.png](/images/ios-search-paths/ios_search_paths.png)
 
-##Framework/Library Search Paths
+## Framework/Library Search Paths
 
 1、Framework Search Paths
 
@@ -25,7 +25,7 @@ tags: iOS
 `$(SRCROOT)/../libs/Release$(EFFECTIVE_PLATFORM_NAME)`，其中
 `$(SRCROOT)`宏代表您的工程文件目录，`$(EFFECTIVE_PLATFORM_NAME)`宏代表当前配置是OS还是simulator
 
-##Header Search Path
+## Header Search Path
 
 1、C/C++头文件引用
 
@@ -45,13 +45,13 @@ tags: iOS
 
 如果设置了`Always Search User Paths`为`YES`,编译器会优先搜索`User Header Search Paths`配置的路径，在这种情况下`#include <string.h>`,`User Header Search Paths`搜索目录下面的文件会覆盖系统的头文件。
 
-##常见配置
+## 常见配置
 
 1、`libxml/tree.h not found`的错误配置
 
 在build setting中的`header search path`中加入`${SDK_DIR}/usr/include/libxml2`
 
-##参考资料
+## 参考资料
 
 1、[《iOS: Clarify different Search Paths》](http://stackoverflow.com/questions/8342982/ios-clarify-different-search-paths)
 

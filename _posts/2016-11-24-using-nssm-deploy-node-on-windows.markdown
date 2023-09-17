@@ -54,7 +54,7 @@ nssm install hbtoutiaoapi
 
 ![preview.png](/images/nssm-node-deploy/preview.png)
 
-###参考资料
+### 参考资料
 
 1.[《Node.js官网》](https://nodejs.org/en/)
 

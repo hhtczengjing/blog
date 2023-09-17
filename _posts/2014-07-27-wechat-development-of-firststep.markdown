@@ -8,7 +8,6 @@ tags: WeChat
 
 说起来接触微信公众平台账号开发差不多快有半年了，在这期间利用零散的时间也开发了个企业服务号。经过这个公众账号的开发，对目前微信公众平台的开放的API算是比较熟悉了，对于常见的消息类型（text、news、music、voice、location等）等都有了一些认识和在使用过程中的技巧有了一定的认识。在开发过程中遇到的一些问题也有了一些领悟，所以想将一些经验分享出来，让大家共同进步。
 
-
 ## 开发者模式配置
 
 1、在浏览器中输入`https://mp.weixin.qq.com`或[点此打开微信后台界面](https://mp.weixin.qq.com)
@@ -45,7 +44,7 @@ tags: WeChat
 3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
 ```
 
-#####PHP版验证URL有效性
+##### PHP版验证URL有效性
 
 ```
 private function checkSignature()
@@ -68,7 +67,7 @@ private function checkSignature()
 }
 ```
 
-#####Java版验证URL有效性
+##### Java版验证URL有效性
 
 (1)获取signature、timestamp、nonce和echostr四个参数
 
@@ -142,7 +141,7 @@ private static String byteToHexStr(byte mByte) {
 }
 ```
 
-###注意事项
+### 注意事项
 
 - 验证成功后返回的字符串必须为`echostr`这个，否则验证不会成功
 
@@ -160,8 +159,8 @@ private static String byteToHexStr(byte mByte) {
 
 `此外请注意，微信公众号接口只支持80接口。`
 
+## 参考资料
 
-##参考资料
 1、[《接入指南》](http://mp.weixin.qq.com/wiki/index.php?title=接入指南)
 
 2、[《全局返回码说明》](http://mp.weixin.qq.com/wiki/index.php?title=全局返回码说明)

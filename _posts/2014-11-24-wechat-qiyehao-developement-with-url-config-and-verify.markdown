@@ -12,7 +12,7 @@ tags: WeChat
 
 本文主要介绍如何使用Java语言进行回调模式的URL验证等内容。
 
-###开启回调模式配置
+### 开启回调模式配置
 
 1、到应用中心选择需要使用回调模式开发的应用，点击进入后会有如下的模式可供选择：
 
@@ -30,7 +30,7 @@ tags: WeChat
 
 （3）EncodingAESKey用于消息体的加密，是AES密钥的Base64编码。
 
-###验证回调URL及密钥
+### 验证回调URL及密钥
 
    当提交前面的信息时，企业号将发送GET请求到填写的URL上，GET请求携带四个参数，企业在获取时需要做urldecode处理，否则会验证不成功。
    
@@ -40,7 +40,7 @@ tags: WeChat
 
 开发步骤如下：
 
-####下载官方加解密库及示例
+#### 下载官方加解密库及示例
 
 1、[到官方指定的地址下载](http://qydev.weixin.qq.com/java.zip)后解压java.zip文件，解压后的文件里面包含Java版本的加解密的类和示例程序，说明如下：
 
@@ -63,7 +63,7 @@ tags: WeChat
 
 - [JDK8对应版本，点此下载](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
 
-####验证URL有效性的步骤
+#### 验证URL有效性的步骤
 
 （1）从GET过来的URL中获取msg_signature、timestamp、nonce和echostr四个参数，需要对URL进行URLDecoder，示例代码如下所示：
 
@@ -114,14 +114,13 @@ response.setContentType("text/xml;charset=UTF-8");
 response.getWriter().write(sEchoStr);
 ```
 
-####验证完成后企业号的配置
+#### 验证完成后企业号的配置
 
 验证通过后可以支持用户自定义菜单、用户状态变更通知、用户消息上报和上报用户地理位置几个方面的配置，如下图示所示：
 
 ![wechat_qyh_url_config_006](/images/wechat_qyh_url_config/wechat_qyh_url_config_006.png)
 
-
-###参考资料
+### 参考资料
 
 1、[《回调模式》](http://qydev.weixin.qq.com/wiki/index.php?title=回调模式)
 

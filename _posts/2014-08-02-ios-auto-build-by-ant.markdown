@@ -10,7 +10,7 @@ Apache Ant，是一个将软件编译、测试、部署等步骤联系在一起�
 
 ![ant logo](/images/ant_for_ios/apache_ant_logo.png)
 
-##安装ANT工具
+## 安装ANT工具
 
 1、到Apache Ant的官网上下载最新的ant工具包
 
@@ -49,17 +49,17 @@ Apache Ant，是一个将软件编译、测试、部署等步骤联系在一起�
 
 4、其实也可以通过Homebrew来安装，直接在终端输入`brew install ant`，但是本人从未尝试正常安装每次都是下载失败，如果有兴趣可以试试。
 
-##Ant build.xml说明
+## Ant build.xml说明
 
-   当开始一个新的项目时，首先应该编写Ant构建文件。构建文件定义了构建过程，并被团队开发中每个人使用。Ant构建文件默认命名为 build.xml，也可以取其他的名字。只不过在运行的时候把这个命名当作参数传给Ant。构建文件可以放在任何的位置。一般做法是放在项目顶层目录中，这样可以保持项目的简洁和清晰。
+当开始一个新的项目时，首先应该编写Ant构建文件。构建文件定义了构建过程，并被团队开发中每个人使用。Ant构建文件默认命名为 build.xml，也可以取其他的名字。只不过在运行的时候把这个命名当作参数传给Ant。构建文件可以放在任何的位置。一般做法是放在项目顶层目录中，这样可以保持项目的简洁和清晰。
    
-   Ant构建文件是XML文件。每个构建文件定义一个唯一的项目(Project元素)。每个项目下可以定义很多目标(target元素)，这些目标之间可以有依赖关系。当执行这类目标时，需要执行他们所依赖的目标。每个目标中可以定义多个任务，目标中还定义了所要执行的任务序列。Ant在构建目标时必须调用所定义的任务。
+Ant构建文件是XML文件。每个构建文件定义一个唯一的项目(Project元素)。每个项目下可以定义很多目标(target元素)，这些目标之间可以有依赖关系。当执行这类目标时，需要执行他们所依赖的目标。每个目标中可以定义多个任务，目标中还定义了所要执行的任务序列。Ant在构建目标时必须调用所定义的任务。
    
-   下面简单介绍下property、project和target标签的基本用法：
+下面简单介绍下property、project和target标签的基本用法：
 
-1、project标签
+##### 1、project标签
 
-   每个构建文件对应一个项目。<project>标签时构建文件的根标签。它可以有多个属性，其各个属性的含义分别如下：
+每个构建文件对应一个项目。<project>标签时构建文件的根标签。它可以有多个属性，其各个属性的含义分别如下：
    
 (1)default表示默认的运行目标，这个属性是必须的
  
@@ -69,9 +69,9 @@ Apache Ant，是一个将软件编译、测试、部署等步骤联系在一起�
 
 (4)description表示项目的描述
 
-2、target标签
+##### 2、target标签
     
-  一个project可以有多个target标签，另外一个target标签可以依赖其他的target标签。例如，有一个target用于编译程序，另一个target用于声称可执行文件。在生成可执行文件之前必须先编译该文件，因策可执行文件的target依赖于编译程序的 target。Target的所有属性如下：
+一个project可以有多个target标签，另外一个target标签可以依赖其他的target标签。例如，有一个target用于编译程序，另一个target用于声称可执行文件。在生成可执行文件之前必须先编译该文件，因策可执行文件的target依赖于编译程序的 target。Target的所有属性如下：
   
 (1)name表示标明，这个属性是必须的
 
@@ -85,13 +85,13 @@ Apache Ant，是一个将软件编译、测试、部署等步骤联系在一起�
 
 Ant的depends属性指定了target的执行顺序。Ant会依照depends属性中target出现顺序依次执行每个target。在执行之前，首先需要执行它所依赖的target。程序中的名为run的target的depends属性compile，而名为compile的target的 depends属性是prepare，所以这几个target执行的顺序是prepare->compile->run。一个target只能被执行一次，即使有多个target依赖于它。如果没有if或unless属性，target总会被执行
 
-3、property标签
+##### 3、property标签
 
 property是用来定义属性的，或者是全局变量，其主要有name和value两个参数，其中name指的是属性的名字，value表示属性的值。
 
 在需要使用属性的地方使用`${name}`即可调用该属性的值。
 
-##Xcode命令行工具
+## Xcode命令行工具
 
 1、查看当前系统支持的SDK的版本
 
@@ -117,7 +117,7 @@ property是用来定义属性的，或者是全局变量，其主要有name和va
 
 `xcrun -sdk iphoneos PackageApplication -v ./build/Release-iphoneos/Demo.app -o Demo.ipa`
 
-##范例
+## 范例
 
 下面是本人参考资料编写的一个简单的ant build.xml文件示例：
 
@@ -248,7 +248,7 @@ Release工程：`ant release`
 
 发布打包项目：`ant deploy`
 
-##参考资料
+## 参考资料
 
 1、[《Apache Ant》](http://zh.wikipedia.org/zh-cn/Apache_Ant)
 

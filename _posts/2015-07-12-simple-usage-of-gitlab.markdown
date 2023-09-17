@@ -12,7 +12,7 @@ tags: Note
 
 它拥有与Github类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。开源中国代码托管平台`git.oschina.net`就是基于GitLab项目搭建。
 
-###添加新项目
+### 添加新项目
 
 1、选择创建新项目
 
@@ -34,7 +34,7 @@ tags: Note
 
 （4）Visibility Level（项目可见级别）：提供Private（私有的，只有你自己或者组内的成员能访问）/Internal（所有登录的用户）/Public(公开的，所有人都可以访问)三种选项。
 
-###添加和配置SSH公钥
+### 添加和配置SSH公钥
 
 SSH（Secure Shell）是一种安全协议，在你的电脑与GitLab服务器进行通信时，我们使用SSH密钥（SSH Keys）认证的方式来保证通信安全。你可以在网络上搜索到关于SSH密钥的更多介绍；下面我们重点讲解如何创建 SSH密钥，并将密钥中的公钥添加到GitLab，以便我们通过SSH协议来访问Git仓库。
 
@@ -44,7 +44,7 @@ SSH 密钥的创建需要在终端（命令行）环境下进行，我们首先�
 
 进入命令行环境后，我们执行以下操作来创建 SSH 密钥。
 
-####1.进入SSH目录
+#### 1.进入SSH目录
 
 `cd  ~/.ssh`
 
@@ -52,7 +52,7 @@ SSH 密钥的创建需要在终端（命令行）环境下进行，我们首先�
 
 （2）可以通过`ls -l`命令查看SSH目录下的文件，来确认你是否已经生成过SSH密钥；如果SSH目录为空，我们开始第二步，生成 SSH 密钥；如果存在id_rsa.pub这个文件，说明你之前生成过SSH密钥，后面有介绍如何添加多个sshkey
 
-####2.生成SSH密钥
+#### 2.生成SSH密钥
 
 我们通过下面的命令生成密钥，请将命令中的`YOUR_EMAIL@YOUREMAIL.COM`替换为你自己的`Email`地址。
 
@@ -77,7 +77,7 @@ The key fingerprint is:
 
 （2）当提示`Enter passphrase (empty for no passphrase) : `时，可以直接按两次回车键输入一个空的 passphrase；也可以选择输入一个 passphrase 口令，如果此时你输入了一个`passphrase`，请牢记，之后每次提交时都需要输入这个口令来确认。
 
-####3.获取SSH公钥信息
+#### 3.获取SSH公钥信息
 
 SSH密钥生成结束后，你可以在SSH目录下看到私钥`id_rsa`和公钥`id_rsa.pub`这两个文件，不要把私钥文件`id_rsa`的信息透露给任何人。我们可以通过文本编辑器或`cat`命令来查看`id_rsa.pub`公钥信息。
 
@@ -93,7 +93,7 @@ SSH密钥生成结束后，你可以在SSH目录下看到私钥`id_rsa`和公钥
 
 - GNU/Linux (requires xclip): `xclip -sel clip < ~/.ssh/id_rsa.pub`
 
-####4.添加SSH公钥到gitlab
+#### 4.添加SSH公钥到gitlab
 
 （1）打开`https://gitlab.com/profile`Profile配置页面，选择SSH Keys.
 
@@ -105,7 +105,7 @@ SSH密钥生成结束后，你可以在SSH目录下看到私钥`id_rsa`和公钥
 
 ![add_sshkey_2.png](/images/gitlab_usage/add_sshkey_2.png)
 
-####5.测试SSH连接
+#### 5.测试SSH连接
 
 `ssh -T git@gitlab.com`
 
@@ -113,11 +113,11 @@ SSH密钥生成结束后，你可以在SSH目录下看到私钥`id_rsa`和公钥
 
 `Welcome to GitLab, USERNAME!`
 
-###如何同时使用多个SSH公钥
+### 如何同时使用多个SSH公钥
 
 如果你已经有了一套ssh(笔者的电脑上就有好几套如github/gitcafe/gitlab,三者各不一样)，为了保证各个服务能正常使用需要配置多个SSH Key。可以按照以下的步骤来实现多套SSH Key的共同工作：
 
-####1.生成SSH密钥
+#### 1.生成SSH密钥
 
 假设你已经有了一套名为id_rsa的公秘钥，将要生成的公秘钥名称为gitlab，你也可以使用任何你喜欢的名字。记得把以下命令中的`YOUR_EMAIL@YOUREMAIL.COM`改为你的`Email`地址
 
@@ -129,7 +129,7 @@ SSH密钥生成结束后，你可以在SSH目录下看到私钥`id_rsa`和公钥
 
 （2）其他的和上面生成密钥的步骤相同，只是多了下面的配置的步骤
 
-####2.配置自定义的公秘钥名称
+#### 2.配置自定义的公秘钥名称
 
 在SSH用户配置文件~/.ssh/config中指定对应服务所使用的公秘钥名称，如果没有config文件的话就新建一个(`vim ~/.ssh/config`)，并输入以下内容(可以添加多个)：
 
@@ -138,7 +138,7 @@ Host gitlab.com www.gitlab.com
   IdentityFile ~/.ssh/gitlab
 ```
 
-###导入项目或提交代码
+### 导入项目或提交代码
 
 1、初始上传代码
 
@@ -172,7 +172,7 @@ git push -u origin master
 
 > 感谢[GitCafe](https://gitcafe.com)，一个非常优秀的代码托管平台，本文很多资料来源于GitCafe官方提供的[帮助手册](https://help.gitcafe.com/manuals/help)。
 
-###参考资料
+### 参考资料
 
 1、[《GitLab Help》](https://gitlab.com/help/)
 

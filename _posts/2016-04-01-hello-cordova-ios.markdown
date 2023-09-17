@@ -16,7 +16,7 @@ Cordova是一个开源的移动应用开发框架，是Adobe贡献给Apache的�
 
 从上图可以看出Cordova是基于WebView的，主要是负责Native/OS和Web之间的交互。我们可以使用Cordova的插件机制对Cordova的功能进行扩展，本文主要是介绍Cordova的用法的插件的开发。
 
-###在现有项目中集成Cordova
+### 在现有项目中集成Cordova
 
 ```
 pod 'Cordova'
@@ -45,7 +45,7 @@ pod 'Cordova'
 
 上面的插件对应着架构图中右边的Plugins，具体的使用方式参考官方的示例。
 
-###如何使用Cordova加载网页
+### 如何使用Cordova加载网页
 
 建议先下载一份phonegap的示例文件，项目地址是`https://github.com/phonegap/phonegap-webview-ios`，可以通过pod查询到(在终端中执行`pod search phonegap`):
 
@@ -53,15 +53,15 @@ pod 'Cordova'
 
 本人的项目是基于上面的这个模板项目进行开发的，修改的步骤如下：
 
-####（1）添加config.xml的配置文件
+#### （1）添加config.xml的配置文件
 
 参见示例项目中的config.xml。
 
-####（2）html中引入cordova js库文件
+#### （2）html中引入cordova js库文件
 
 参见示例项目中的js引入。
 
-####（3）index.js文件内容：
+#### （3）index.js文件内容：
 
 ```
 var app = {
@@ -97,7 +97,7 @@ app.initialize();
 
 以上摘自示例项目中的index.js
 
-####（4）使用CDVViewController
+#### （4）使用CDVViewController
 
 ```
 CDVViewController *viewController = [CDVViewController new];
@@ -107,9 +107,9 @@ viewController.startPage = @"mypage.html"
 
 其中使用CDVViewController通常需要设置wwwFolderName的目录名称，和startPage首页的名称即可。
 
-###Cordova自定义插件开发
+### Cordova自定义插件开发
 
-####（1）创建插件的实现类需要继承CDVPlugin
+#### （1）创建插件的实现类需要继承CDVPlugin
 
 *MyBrowserPlugin.h：*
 
@@ -158,7 +158,7 @@ viewController.startPage = @"mypage.html"
 }
 ```
 
-####（2）实现插件JS端的代码
+#### （2）实现插件JS端的代码
 
 ```
 cordova.define("com.devzeng.cordova.mybrowser", function(require, exports, module){
@@ -177,7 +177,7 @@ cordova.define("com.devzeng.cordova.mybrowser", function(require, exports, modul
 mybrowser.open('url地址', function(message){...});
 ```
 
-####（3）在web端(cordova_plugin.js)配置插件
+#### （3）在web端(cordova_plugin.js)配置插件
 
 ```
 {
@@ -198,7 +198,7 @@ mybrowser.open('url地址', function(message){...});
 
 3）clobbers中设置的数据是用来自动注册到window中的对象，我们在使用的时候直接使用该命令即可。
 
-####（4）在项目中(config.xml)配置插件
+#### （4）在项目中(config.xml)配置插件
 
 ```
 <feature name="MyBrowserPlugin">
@@ -212,7 +212,7 @@ mybrowser.open('url地址', function(message){...});
 
 2）param中的name在iOS中固定写成ios-package, 后面的value就对应着该插件的入口实现类
 
-###参考资料
+### 参考资料
 
 1、[《iOS Plugin Development Guide》](http://cordova.apache.org/docs/en/6.x/guide/platforms/ios/plugin.html)
 

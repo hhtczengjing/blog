@@ -20,7 +20,7 @@ Realm可以轻松地移植到项目当中，并且绝大部分常用的功能（
 
 - Fast(高效)：Realm相比使用CoreData和原生的SQLite来说速度更快更加高效，而且代码量更少。
 
-###快速集成Realm
+### 快速集成Realm
 
 1、下载最新的[Realm](http://realm.io)更新包，解压zip文件
 
@@ -42,9 +42,9 @@ Realm可以轻松地移植到项目当中，并且绝大部分常用的功能（
 
 （2）推荐使用Xcode 5以上的IDE，支持Swift
 
-###辅助工具和插件的安装
+### 辅助工具和插件的安装
 
-####1、Realm Browser
+#### 1、Realm Browser
 
 Realm官方非常贴心的向开发者提供了一个用于查看喝编辑Realm数据的工具`Realm Browser`.
 
@@ -52,7 +52,7 @@ Realm官方非常贴心的向开发者提供了一个用于查看喝编辑Realm�
 
 在上面下载的更新包的`browser/`下面有个Realm Browser拖到Application文件夹或者是直接打开都行。另外可以使用菜单的`tool -> generate demo datebase`,生成测试数据用于测试Realm数据库的使用
 
-####2、Xcode Plugin
+#### 2、Xcode Plugin
 
 在Realm中使用到最多的是Realm Model(继承自RLMObject的类，后面有介绍)。官方提供了一个Xcode的插件让我们在创建模型变得非常轻松
 
@@ -66,9 +66,9 @@ Realm官方非常贴心的向开发者提供了一个用于查看喝编辑Realm�
 
 安装完后重启Xcode生效，在创建model的时候选择New File(或⌘N)，选择Realm按照要求输入model的名字就OK啦。
 
-###Realm的使用
+### Realm的使用
 
-####1、构建数据库
+#### 1、构建数据库
 
 Realm提供了三种方式创建数据库，一种是存储在默认路径下的数据库，一种是我们可以自己指定数据库文件的存储路径和只读属性，另外还可以使用内存数据库。
 
@@ -104,7 +104,7 @@ RLMRealm *realm = [RLMRealm inMemoryRealmWithIdentifier:@"test"];
 
 注意：内存数据库在每次程序退出时不会保存数据。如果某个内存Realm实例没有被引用，所有的数据在实例对象释放的适合也会被释放。建议你在app中用强引用来钳制所有新建的内存Realm数据库实例。
 
-####2、数据模型
+#### 2、数据模型
 
 Realm的数据模型是用传统的Objective-C接口（interface）和属性（@property）定义的。 只要定义 `RLMObject`的一个子类或者一个现成的模型类，你就能轻松创建一个Realm的数据模型对象。Realm模型对象和其他的Objective-c的功能很相似–你可以给它们添加你自己的方法和protocol然后和其他的对象一样使用。 唯一的限制就是从它们被创建开始，只能在一个进程中被使用。
 
@@ -177,7 +177,7 @@ RLM_ARRAY_TYPE(Article)
 
 4）`+ (NSArray *)ignoredProperties;`：可以被重写来防止Realm存储模型属性。
 
-####3、数据增删改查
+#### 3、数据增删改查
 
 （1）存储数据
 
@@ -276,7 +276,7 @@ RLMResults *results1 = [Article objectsWhere:@"tag = 'iOS'"];
 RLMResults *results2 = [results1 objectsWhere:@"author = 'zengjing'"];
 ```
 
-####4、通知
+#### 4、通知
 
 每当一次写事务完成Realm实例都会向其他线程上的实例发出通知，可以通过注册一个block来响应通知：
 
@@ -298,7 +298,7 @@ self.token = [realm addNotificationBlock:^(NSString *note, RLMRealm * realm) {
 [realm removeNotification:self.token];
 ```
 
-####5、数据库版本迁移
+#### 5、数据库版本迁移
 
 当你和数据库打交道的时候，时不时的你需要改变数据模型（model），但因为Realm中得数据模型被定义为标准的Objective-C interfaces，要改变模型，就像改变其他Objective-C interface一样轻而易举。举个例子，假设有个数据模型`Person`:
 
@@ -367,7 +367,7 @@ self.token = [realm addNotificationBlock:^(NSString *note, RLMRealm * realm) {
 }];
 ```
 
-###说明（摘自官方的FAQ）
+### 说明（摘自官方的FAQ）
 
 1、realm的支持库有多大？
 
@@ -381,7 +381,7 @@ self.token = [realm addNotificationBlock:^(NSString *note, RLMRealm * realm) {
 
 不要， Realm的彻底免费的， 哪怕你用于商业软件。
 
-###参考资料
+### 参考资料
 
 1、[《Realm Document》](https://realm.io/docs/objc/latest)
 

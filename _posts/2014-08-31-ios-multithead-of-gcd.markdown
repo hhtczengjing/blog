@@ -10,7 +10,7 @@ Grand Central Dispatch(简称GCD)是Apple在`Mac OS X 10.6`和`iOS4.0`中首次�
 
 GCD是一个可用来替代`NSThread、NSOperation、NSOperataionQueue`等技术的一个非常强大的解决方案。GCD在工作时会自动利用更多的处理器核心以充分利用机器的可用资源。
 
-##Dispatch Queue
+## Dispatch Queue
 
 GCD编程的核心就是dispatch队列，dispatch block的执行最终都会放进某个队列中去进行，它类似NSOperationQueue但更复杂也更强大，并且可以嵌套使用。所以说，结合block实现的GCD，把函数闭包（Closure）的特性发挥得淋漓尽致。
 
@@ -129,7 +129,7 @@ dispatch队列是线程安全的，可以利用串行队列实现锁的功能。
 
 dispatch队列不支持cancel（取消），没有实现dispatch_cancel()函数，不像NSOperationQueue，不得不说这是个小小的缺憾。
 
-##Dispatch Group
+## Dispatch Group
 
 1、创建dispatch组
 
@@ -178,7 +178,7 @@ dispatch_async(queue, ^{
 ```
 所以，可以利用dispatch_group_enter、 dispatch_group_leave和dispatch_group_wait来实现同步,[具体例子](http://stackoverflow.com/questions/10643797/wait-until-multiple-operations-executed-including-completion-block-afnetworki/10644282#10644282)。
 
-##参考资料
+## 参考资料
 
 1、[《iOS多线程的初步研究（七）-- dispatch对象》](http://www.cnblogs.com/sunfrog/p/3281612.html)
 

@@ -10,7 +10,7 @@ tags: iOS
 
 ![app_settings.png](/images/ios_settings_bundle/app_settings.png)
 
-###Settings.bundle配置说明
+### Settings.bundle配置说明
 
 在Settings.bundle中支持如下几种配置项：
 
@@ -114,7 +114,7 @@ Group类似于UITableView中的Group分组，用来表示一组设置项，配�
 
 (4)Default Value：默认的值
 
-###在项目中使用
+### 在项目中使用
 
 1、添加Setting.bundle文件到项目中
 
@@ -180,13 +180,13 @@ Group类似于UITableView中的Group分组，用来表示一组设置项，配�
 
 `SystemConfigHelper`是用来读取系统配置信息的工具.
 
-###典型实例
+### 典型实例
 
 1、[爱奇艺iPhone客户端的Settings.bundle配置](/images/ios_settings_bundle/iqiyi.plist)
 
 2、[招商银行iPhone客户端的Settings.bundle配置](/images/ios_settings_bundle/cmb.plist)
 
-###参考资料
+### 参考资料
 
 1、[《整合Settings.bundle显示版本信息》](http://www.cocoachina.com/ios/20141103/10112.html)
 

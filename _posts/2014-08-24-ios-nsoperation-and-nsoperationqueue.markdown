@@ -6,9 +6,9 @@ comments: true
 tags: iOS
 ---
 
-   如果对Java或者与Java类似的语言熟悉的话，可以说NSOperation对象很像java.lang.Runnable接口。类似的，在Java的Runnable接口中，NSOperation对象被设计为可以扩展的。还是和Java一样，这里也有一个方法可以被重载次数的最小值。对于NSOpetation来说，这个方法就是`-(void)main`方法.使用NSOperation的最简单的一种方法是把它加入一个NSOperationQueue。一旦operation被加入了这个队列，队列就马上把它踢出开始运行。operation运行结束后，队列就马上将它释放。
+如果对Java或者与Java类似的语言熟悉的话，可以说NSOperation对象很像java.lang.Runnable接口。类似的，在Java的Runnable接口中，NSOperation对象被设计为可以扩展的。还是和Java一样，这里也有一个方法可以被重载次数的最小值。对于NSOpetation来说，这个方法就是`-(void)main`方法.使用NSOperation的最简单的一种方法是把它加入一个NSOperationQueue。一旦operation被加入了这个队列，队列就马上把它踢出开始运行。operation运行结束后，队列就马上将它释放。
 
-##NSOperation
+## NSOperation
 
 1、NSOperation
 
@@ -129,7 +129,7 @@ NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 ```
 上面的几个Block是并发执行的，也就是在不同的线程中执行的。
 
-##NSOperationQueue
+## NSOperationQueue
 
 一个NSOperation对象可以通过调用start方法来执行任务，默认是同步执行的。也可以将NSOperation添加到一个NSOperationQueue(操作队列)中去执行，而且是异步执行的。
 
@@ -167,7 +167,6 @@ NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 
 `[queue setMaxConcurrentOperationCount:1];`
 
-
 4、取消operations
 
 (1)单个NSOperation取消
@@ -178,7 +177,7 @@ NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 
 `[queue cancelAllOperations]`
 
-##参考资料
+## 参考资料
 
 1、[《NSOperation and NSOperationQueue》](http://www.cnblogs.com/zhidao-chen/archive/2012/07/06/2579152.html)
 

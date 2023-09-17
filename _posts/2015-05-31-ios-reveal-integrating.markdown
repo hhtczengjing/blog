@@ -12,13 +12,13 @@ tags: iOS
 
 ![reveal-hero.png](/images/reveal_integrating/reveal-hero.png)
 
-###下载安装
+### 下载安装
 
 Releal官方提供试用版本，免费试用期是30天，功能和正式版没有差别.[点此下载](http://revealapp.com/download/)。
 
-###配置Reveal
+### 配置Reveal
 
-####1、配置方式一
+#### 1、配置方式一
 
 (1)启动Reveal，选择`Reveal -> Help -> Show Reveal Library in Finder`。
 
@@ -46,7 +46,7 @@ Releal官方提供试用版本，免费试用期是30天，功能和正式版没
 
 ![reveal_demo.png](/images/reveal_integrating/reveal_demo.png)
 
-####2、配置方式二
+#### 2、配置方式二
 
 Reveal官方介绍了好几种办法使Reveal连接模拟器，都需要修改工程文件。但如果修改了工程文件，就需要参与项目开发的所有人都装有Reveal，下面介绍一种比较方便的方式来集成Reveal，步骤如下：
 
@@ -100,7 +100,7 @@ command alias reveal_stop expr (void)[(NSNotificationCenter*)[NSNotificationCent
 ![reveal_load_console.png](/images/reveal_integrating/reveal_load_console.png)
 
 
-###参考资料
+### 参考资料
 
 1、[《使用Reveal来查看、修改、调试iOS应用》](http://wufawei.com/2013/12/use-reveal-to-inspect-ios-apps/)
 

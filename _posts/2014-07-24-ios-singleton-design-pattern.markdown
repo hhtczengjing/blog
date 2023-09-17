@@ -9,7 +9,6 @@ tags: iOS
 
 #### 单例模式简单实现
 
-
 在objective-c中要实现一个单例类，至少需要做以下四个步骤：(推荐使用宏的方式来创建)
 
 (1)为单例对象实现一个静态实例，并初始化，然后设置成nil:
@@ -60,7 +59,6 @@ static Singleton *_instance = nil;
 	return _instance;
 }
 ```
-
 
 #### 单例模式的应用
 

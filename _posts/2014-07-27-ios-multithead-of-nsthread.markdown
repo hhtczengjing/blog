@@ -6,23 +6,25 @@ comments: true
 tags: iOS
 ---
    
-   iOS创建线程的方式有三种，分别是`NSThread`、`NSOperation`和`GCD`。这样三种编程方式从上到下，抽象度层次是由低到高，抽象度越高的使用越简单，也是Apple最推荐使用的。这里主要是介绍NSThread的相关使用要点，后续会继续介绍`NSOperation`和`GCD`的使用方法。 
+iOS创建线程的方式有三种，分别是`NSThread`、`NSOperation`和`GCD`。这样三种编程方式从上到下，抽象度层次是由低到高，抽象度越高的使用越简单，也是Apple最推荐使用的。这里主要是介绍NSThread的相关使用要点，后续会继续介绍`NSOperation`和`GCD`的使用方法。 
 
 ## 创建线程
-   对于多线程的开发，iOS系统提供了多种不同的接口，先谈谈iOS多线程最基础方面的使用。产生线程的方式姑且分两类，一类是显式调用，另一类是隐式调用。
+
+对于多线程的开发，iOS系统提供了多种不同的接口，先谈谈iOS多线程最基础方面的使用。产生线程的方式姑且分两类，一类是显式调用，另一类是隐式调用。
 
 ### 显式创建线程
-
 
 (1)采用NSThread的`detachNewThreadSelector:toTarget:withObject:`的类方法来创建多线程
 
 ```
 [NSThread detachNewThreadSelector:@selector(doSomethingInBackground:) toTarget:self withObject:nil];
 ```
+
 参数意义：
-(1)selector:线程执行的方法，该selector只能有一个参数，而且返回值是`void`
-(2)target:selector消息发送的对象
-(3)argument:传递给target的唯一参数，可以为nil
+
+- (1)selector:线程执行的方法，该selector只能有一个参数，而且返回值是`void`
+- (2)target:selector消息发送的对象
+- (3)argument:传递给target的唯一参数，可以为nil
 
 (2)采用NSThread的`initWithTarget:selector:object:`的实例方法来创建线程，可以获取线程对象方便日后终止线程
 
@@ -47,6 +49,7 @@ MyThread *thread = [[MyThread alloc] init];
 ```
 
 ### 隐式创建线程
+
 （1）在后台执行
 
 ```
@@ -66,6 +69,7 @@ MyThread *thread = [[MyThread alloc] init];
 ```
 
 ## NSThread的其他方法
+
 创建的线程是非关联线程（detached thread），即父线程和子线程没有执行依赖关系，父线程结束并不意味子线程结束。
 
 (1)获得当前线程
@@ -147,7 +151,7 @@ MyThread *thread = [[MyThread alloc] init];
 + (void)cancelPreviousPerformRequestsWithTarget:(id)aTarget;
 ```
 
-##线程执行顺序
+## 线程执行顺序
 
 通常UI需要显示网络数据时，可以简单地利用线程的执行顺序，避免显式的线程同步：
 

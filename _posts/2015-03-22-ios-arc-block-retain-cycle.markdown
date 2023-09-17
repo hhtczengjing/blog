@@ -12,7 +12,7 @@ tags: iOS
 
 本文主要通过一个例子来介绍在ARC情况下使用Block不当会导致的内存泄露的问题。
 
-###示例代码
+### 示例代码
 
 示例代码来源于《Effective Objective-C 2.0》(编写高质量iOS与OS X代码的52个有效方法)。
 
@@ -101,7 +101,7 @@ typedef void (^EOCNetworkFetcherCompletionHandler)(NSData *data);
 
 ![arc_block_retain_cycle.png](/images/arc_block_retain_cycle/arc_block_retain_cycle.png)
 
-###解决办法
+### 解决办法
 
 要想打破保留环
 
@@ -146,7 +146,7 @@ typedef void (^EOCNetworkFetcherCompletionHandler)(NSData *data);
 }
 ```
 
-###参考资料
+### 参考资料
 
 1、[《ARC 下内存泄露的那些点》](https://www.zybuluo.com/MicroCai/note/67734)
 

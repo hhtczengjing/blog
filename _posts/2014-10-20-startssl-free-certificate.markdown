@@ -6,11 +6,11 @@ comments: true
 tags: Note
 ---
 
-   跟VeriSign一样，StartSSL（`http://www.startssl.com`，公司名：StartCom）也是一家CA机构，它的根证书很久之前就被一些具有开源背景的浏览器支持（Firefox浏览器、谷歌Chrome浏览器、苹果Safari浏览器等）。在去年9月份，StartSSL竟然搞定了微软：微软在升级补丁中，更新了通过Windows根证书认证程序（Windows Root Certificate Program）的厂商清单，并首次将StartCom公司列入了该认证清单，这是微软首次将提供免费数字验证技术的厂商加入根证书认证列表中。现在，在Windows 7或安装了升级补丁的Windows Vista或Windows XP操作系统中，系统会完全信任由StartCom这类免费数字认证机构认证的数字证书，从而使StartSSL也得到了IE浏览器的支持。
+跟VeriSign一样，StartSSL（`http://www.startssl.com`，公司名：StartCom）也是一家CA机构，它的根证书很久之前就被一些具有开源背景的浏览器支持（Firefox浏览器、谷歌Chrome浏览器、苹果Safari浏览器等）。在去年9月份，StartSSL竟然搞定了微软：微软在升级补丁中，更新了通过Windows根证书认证程序（Windows Root Certificate Program）的厂商清单，并首次将StartCom公司列入了该认证清单，这是微软首次将提供免费数字验证技术的厂商加入根证书认证列表中。现在，在Windows 7或安装了升级补丁的Windows Vista或Windows XP操作系统中，系统会完全信任由StartCom这类免费数字认证机构认证的数字证书，从而使StartSSL也得到了IE浏览器的支持。
    
-   ![startssl_logo.jpg](http://www.startssl.com/img/top-logo1.jpg)
+![startssl_logo.jpg](http://www.startssl.com/img/top-logo1.jpg)
 
-##StartSSL个人证书登录申请
+## StartSSL个人证书登录申请
 
 1、在浏览器中输入：`https://www.startssl.com/?app=12`，如果是第一次使用需要进行注册，选择Sign-up,如下图所示：
 
@@ -46,8 +46,7 @@ tags: Note
 
 ![startssl_free_certificate_006.png](/images/startssl_free_certificate/startssl_free_certificate_006.png)
 
-
-##StartSSL免费证书创建
+## StartSSL免费证书创建
 
 1、点击Validations Wizard，选择Domain name validation，点击Continue。
 
@@ -99,7 +98,7 @@ tags: Note
 
 ![startssl_free_certificate_018](/images/startssl_free_certificate/startssl_free_certificate_018.png)
 
-##参考资料
+## 参考资料
 
 1、[《全球唯一免费HTTPS证书颁发机构：StartSSL》](http://www.chinaz.com/free/2010/0114/103945.shtml)
 

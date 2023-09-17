@@ -8,14 +8,14 @@ tags: iOS
 
 在iOS开发中很多时候我们会和UIWebView打交道，目前国内的很多应用都采用了UIWebView的混合编程技术，最常见的是微信公众号的内容页面。前段时间在做微信公众平台相关的开发，发现很多应用场景都是利用HTML5和UIWebView来实现的。
 
-###机制
+### 机制
 
 Objective-C语言调用JavaScript语言，是通过UIWebView的
 `- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script;`的方法来实现的。该方法向UIWebView传递一段需要执行的JavaScript代码最后获取执行结果。
 
 JavaScript语言调用Objective-C语言，并没有现成的API，但是有些方法可以达到相应的效果。具体是利用UIWebView的特性：在UIWebView的内发起的所有网络请求，都可以通过delegate函数得到通知。  
 
-###示例
+### 示例
 
 下面提供一个简单的例子介绍如何相互的调用，实现的效果是在界面上点击一个链接，然后弹出一个对话框判断是否登录成功。
 
@@ -93,7 +93,7 @@ JavaScript语言调用Objective-C语言，并没有现成的API，但是有些�
 
 `https://github.com/marcuswestin/WebViewJavascriptBridge`
 
-###使用案例
+### 使用案例
 
 1、动态将网页上的图片全部缩放
 
@@ -136,7 +136,7 @@ function ResizeImages() {
 [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
 ```
 
-###参考资料
+### 参考资料
 
 1、[《关于UIWebView和PhoneGap的总结》](http://blog.devtang.com/blog/2012/03/24/talk-about-uiwebview-and-phonegap/)
 

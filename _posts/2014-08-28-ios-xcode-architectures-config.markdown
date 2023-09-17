@@ -29,7 +29,7 @@ tags: iOS
 
 ![ios-architectures-config.png](/images/ios-architectures/ios-architectures-config.png)
 
-##Architectures
+## Architectures
 
 该编译选项指定了工程将被编译成支持哪些指令集，支持指令集是通过编译生成对应的二进制数据包实现的，如果支持的指令集数目有多个，就会编译出包含多个指令集代码的数据包，造成最终编译的包很大。
 
@@ -38,7 +38,8 @@ tags: iOS
 Space-separated list of identifiers. Specifies the architectures (ABIs, processor models) to which the binary is targeted. When this build setting specifies more than one architecture, the generated binary may contain object code for each of the specified architectures.
 
 
-##Build Active Architectures Only
+## Build Active Architectures Only
+
 该编译项用于设置是否只编译当前使用的设备对应的arm指令集。
 
 当该选项设置成YES时，你连上一个armv7指令集的设备，就算你的Valid Architectures和Architectures都设置成armv7/armv7s/arm64，还是依然只会生成一个armv7指令集的二进制包。
@@ -51,7 +52,7 @@ Space-separated list of identifiers. Specifies the architectures (ABIs, processo
 
 Boolean value. Specifies whether the product includes only object code for the native architecture.
 
-##Valid Architectures
+## Valid Architectures
 
 该编译项指定可能支持的指令集，该列表和Architectures列表的交集，将是Xcode最终生成二进制包所支持的指令集。
 
@@ -61,7 +62,7 @@ Boolean value. Specifies whether the product includes only object code for the n
 
 Space-separated list of identifiers. Specifies the architectures for which the binary may be built. During the build, this list is intersected with the value of ARCHS build setting; the resulting list specifies the architectures the binary can run on. If the resulting architecture list is empty, the target generates no binary.
 
-##说明
+## 说明
 
 1、指令集是向下兼容的。比如，armv7s指令集的设备，可以兼容运行使用armv7、armv6编译的程序。
 	
@@ -73,7 +74,7 @@ Space-separated list of identifiers. Specifies the architectures for which the b
 
 5、如果遇到`Undefined symbols for architecture arm64`这样的错误，一般是表示引入的第三方库不支持arm64的指令集，解决这个问题就只需要删除Architectures中的arm64的选项。
   
-##参考资料
+## 参考资料
 
 1、[《Xcode设置项之Architectures和Valid Architectures》](http://wangzz.github.io/blog/2014/05/09/xcodeshe-zhi-xiang-zhi-architectureshe-valid-architectures/)
 

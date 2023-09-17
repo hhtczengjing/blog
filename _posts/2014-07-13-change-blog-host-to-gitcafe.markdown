@@ -40,7 +40,6 @@ system "git push -u gitcafe master:gitcafe-pages"
 
 ![设置Rakefile](/images/gitcafe/gitcafe-edit-rakefile.png)
 
-
 ### 设置域名
 
 GitCafe的自定义域名设置比github要友好得多，它不但提供了图形界面设置，并且支持同时设置多个域名。在`项目管理`->`域名管理`中，我们可以找到相应的设置项，如下所示：
@@ -51,11 +50,8 @@ GitCafe的自定义域名设置比github要友好得多，它不但提供了图�
 
 ![域名解析](/images/gitcafe/domain_dns.png)
 
-
 ## 参考资料
 
 1、[《将博客从GitHub迁移到GitCafe》](http://devtang.com/blog/2014/06/02/use-gitcafe-to-host-blog/)
 
 2、[《Pages相关帮助》](https://gitcafe.com/GitCafe/Help/wiki/Pages-相关帮助#wiki)
-
-

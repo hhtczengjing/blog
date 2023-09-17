@@ -10,7 +10,7 @@ tags: iOS
 
 ![201111194125034.png](/images/action_extension/201111194125034.png)
 
-###创建Action Extension
+### 创建Action Extension
 
 1、使用Xcode6创建一个iOS工程，菜单栏File->New->Target出现下面的可选项，选择Action Extension:
 
@@ -20,7 +20,7 @@ tags: iOS
 
 ![action_extension_02.png](/images/action_extension/action_extension_02.png)
 
-###配置Action Extension
+### 配置Action Extension
 
 1、默认Action Extension中的布局使用StoryBoard，如果不想使用StoryBoard布局将Info.plist中的如下配置：
 
@@ -62,7 +62,7 @@ tags: iOS
 <string>com.apple.ui-services</string>
 ```
 
-###示例程序
+### 示例程序
 
 实现一个网页截屏的功能，用户在Safari中的Action选择指定的动作，然后将网页的内容以图片的形式保存下来，类似于[`Screenshot`](https://itunes.apple.com/cn/app/awesome-screenshot-for-safari/id918780145?l=en&mt=8).
 
@@ -125,7 +125,7 @@ for (NSExtensionItem *item in self.extensionContext.inputItems) {
 }
 ```
 
-###参考资料
+### 参考资料
 
 1、[《将UIWebView显示的内容转为图片和PDF》](http://www.cnblogs.com/tracy-e/p/3151463.html)
 

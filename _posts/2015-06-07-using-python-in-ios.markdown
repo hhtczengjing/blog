@@ -18,7 +18,7 @@ Python就为我们提供了非常完善的基础代码库，覆盖了网络、�
 
 许多大型网站就是用Python开发的，例如YouTube、Instagram，还有国内的豆瓣。很多大公司，包括Google、Yahoo等，甚至NASA（美国航空航天局）都大量地使用Python。
 
-###安装Python第三方模块
+### 安装Python第三方模块
 
 在Python中，安装第三方模块，是通过包管理工具pip完成的，在终端中尝试运行pip如果提示未找到该命令，需要先安装pip。
 
@@ -42,7 +42,7 @@ pip install BeautifulSoup
 只要耐心等待下载并安装后，就可以使用了。另外其他常用的第三方库还有MySQL的驱动：mysql-connector-python，用于科学计算的NumPy库：numpy，用于生成文本的模板工具Jinja2，等等。
 
 
-###案例
+### 案例
 
 1、抓取`http://blog.devzeng.com`网站下面的所有文章的名称和链接。适用于模拟爬虫的功能，将某些网站上面的数据抓取回来。
 
@@ -151,7 +151,7 @@ content = getHtmlContent(url + "/Services/")
 getAllHrefLink(url, content)
 ```
 
-###参考资料
+### 参考资料
 
 1、[《Python官网》](https://www.python.org)
 

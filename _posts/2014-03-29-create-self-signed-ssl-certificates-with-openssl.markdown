@@ -75,13 +75,13 @@ keytool -keystore truststore.jks -keypass 123456 -storepass 123456 -alias ca -im
 * Tomcat<br/>
   需要到tomcat的conf目录下面修改server.xml的文件中的部分内容，增加以下部分，端口号8443按照具体的需要来进行设置
   
-  ```
-   <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
-           maxThreads="150" scheme="https" secure="true"
-           clientAuth="false" sslProtocol="TLS" 
-           keystoreFile="tomcat.p12" keystorePass="888888" keystoreType="PKCS12"
-           truststoreFile="truststore.jks"  truststorePass="888888" truststoreType="JKS"/>
 ```
-           
+<Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+      maxThreads="150" scheme="https" secure="true"
+      clientAuth="false" sslProtocol="TLS" 
+      keystoreFile="tomcat.p12" keystorePass="888888" keystoreType="PKCS12"
+      truststoreFile="truststore.jks"  truststorePass="888888" truststoreType="JKS"/>
+```
+    
 * IIS<br/>
   IIS的配置是相当的简单直接在服务器证书那里选择导入pfx就行了，其他的就是创建HTTPS的问题了，在此就不作过多的描述。

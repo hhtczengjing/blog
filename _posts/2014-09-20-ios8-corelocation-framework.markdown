@@ -10,7 +10,7 @@ tags: iOS
 
 ![ios8_location_alert.png](/images/ios8_location/ios8_location_alert.png)
 
-##iOS8以前使用CoreLocation定位
+## iOS8以前使用CoreLocation定位
 
 1、首先定义一个全局的变量用来记录CLLocationManager对象，引入`CoreLocation.framework`使用`#import <CoreLocation/CoreLocation.h>`
 
@@ -65,7 +65,7 @@ _locationManager.distanceFilter = 10;
 }
 ```
 
-##iOS8中使用CoreLocation定位
+## iOS8中使用CoreLocation定位
 
 1、在使用CoreLocation前需要调用如下函数【iOS8专用】：
 
@@ -100,7 +100,7 @@ _locationManager.distanceFilter = 10;
 
 ![ios8_location_info_plist.png](/images/ios8_location/ios8_location_info_plist.png)
 
-##参考资料
+## 参考资料
 
 1、[《迎接iOS8 - CoreLocation的变化》](http://my.oschina.net/non6/blog/289150)
 

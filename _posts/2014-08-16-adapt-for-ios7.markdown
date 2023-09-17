@@ -8,7 +8,7 @@ tags: iOS
 
 Apple自去年发布iOS7以来一直以来都有关注目前各个大厂发布的app，到目前为止基本上绝大多数App Store上的app已经做到iOS7适配，不光是支持iOS7的布局调整更多的是在iOS7整体设计方面的改进，朝着扁平化和简单线条话的方式进行设计。
 
-##UI适配
+## UI适配
 
   在iOS7中view默认是全屏模式，状态栏的高度也加在了view的高度上，例如iOS7之前iPhone5/5s/5c中self.view.frame.size.height = 548，在iOS7中就是568了，在iOS7中navigationbar是半透明的，statusbar则是全透明的，这样一来，原来的程序用xcode5+iOS7sdk上编译后运行就会出现问题了。
   
@@ -65,7 +65,7 @@ self.view.bounds = CGRectMake(0, -20, self.view.frame.size.width, self.view.fram
 
 (3)对于UILabel，在iOS 7中它的background颜色默认是clearColor，而在iOS 6中默认的是白色。所以，我们最好在代码中对label的background颜色进行明确的设置`label.backgroundColor = [UIColor clearColor];`
 
-##其他适配
+## 其他适配
 
 1、mac地址无法获取
 
@@ -79,7 +79,7 @@ NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllo
   ```
   获得的这个CFUUID值系统并没有存储。每次调用CFUUIDCreate，系统都会返回一个新的唯一标示符。如果你希望存储这个标示符，那么需要自己将其存储到NSUserDefaults, Keychain, Pasteboard或其它地方。
 
-##参考资料
+## 参考资料
 
 1、[《iOS 7 教程：让程序同时支持iOS 6和iOS 7》](http://beyondvincent.com/blog/2013/11/19/122-working-with-ios-6-and-7/)
 

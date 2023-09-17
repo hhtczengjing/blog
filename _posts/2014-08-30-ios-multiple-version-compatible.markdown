@@ -16,7 +16,7 @@ Apple自2007年发布第一版iOS操作系统以来，差不多以后的每年�
 
 ![app_store_app_info.png](/images/ios_version/app_store_app_info.png)
 
-##Xcode配置
+## Xcode配置
 
 作为iOS开发者，我们都希望软件的受众越多越好。怎么样让软件尽量适应最多的系统版本？这里我们就应该了解iPhone项目的`Base SDK`和`Deployment Target`。
 
@@ -28,7 +28,7 @@ Apple自2007年发布第一版iOS操作系统以来，差不多以后的每年�
 
 ![xcode_deployment_target.png](/images/ios_version/xcode_deployment_target.png)
 
-##条件编译
+## 条件编译
 
 每次发布新版的SDK，系统都会添加一些新的有用的API，比如在iOS5.0的时候就引入了`NSJSONSerialization`的类用于解析JSON数据，在iOS5之前开发者要解析JSON就必须使用第三方库比如SBJSON、JSONKit。从效率上来看`SBJSON、JSONKit`在解析或者生成JSON数据都不如`NSJSONSerialization`高。但是为了兼容低版本像这样的地方需要做一些处理，在低版本时使用低版本的解决方案，在高版本的时候使用高版本的方案。
 
@@ -85,7 +85,7 @@ Apple自2007年发布第一版iOS操作系统以来，差不多以后的每年�
 #endif
 ```
 
-##参考资料
+## 参考资料
 
 1、[《iPhoneSDK版本宏》](http://blog.163.com/ray_jun/blog/static/1670536422012429104151970/)
 

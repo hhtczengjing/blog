@@ -10,7 +10,7 @@ tags: Note
 
 ![aliyun_info.png](/images/aliyun_ubuntu_svn/aliyun_info.png)
 
-##SVN服务器相关软件安装
+## SVN服务器相关软件安装
 
 1、使用SSH远程服务器
 
@@ -49,7 +49,7 @@ Last login: Tue Oct 14 21:31:10 2014
 其中`subversion`是SVN必须的，apache2和libapache2-svn是为了配置SVN服务器支持通过HTTP访问
 
 
-##SVN服务器配置
+## SVN服务器配置
 
 1、相关用户、组的设定
 
@@ -147,7 +147,7 @@ administrator=admin001,admin001
 `svn checkout http://hostname/svn/project1 project1 --username 用户名 --password 密码`
 来checkout项目了
 
-##相关问题
+## 相关问题
 
 1、Apache和Tomcat端口号冲突
 
@@ -161,7 +161,7 @@ administrator=admin001,admin001
 
 （2）启动：`sudo /etc/init.d/tomcat start`
 
-##参考资料
+## 参考资料
 
 1、[《关于阿里云》](http://www.aliyun.com/about/?spm=5176.383338.25.1.MVser7)
 

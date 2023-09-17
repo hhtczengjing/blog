@@ -16,7 +16,7 @@ WebP是Google开发的一种旨在加快图片加载速度的图片格式。图�
 
 关于WebP格式优势不在多说，推荐查看官方的一份研究报告。[点此查看](https://developers.google.com/speed/webp/docs/c_study#negative_compression_gain)
 
-###WebP转换
+### WebP转换
 
 Google提供了一套完整的工具集方便我们使用WebP。[点此下载](https://developers.google.com/speed/webp/docs/precompiled)
 
@@ -30,7 +30,7 @@ Google提供了一套完整的工具集方便我们使用WebP。[点此下载](h
 
 更多参数可以查看官方的文档，或者直接使用第三方的转换工具。
 
-###在iOS项目中使用WebP
+### 在iOS项目中使用WebP
 
 SDWebImage中支持WebP格式的，可以完成`UIImage -> Webp`和`WebP -> UIImage`的转换。直接通过CocoaPods的Podfile文件中加入`pod 'SDWebImage/WebP'`即可。
 
@@ -143,7 +143,7 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 
 这里的示例使用的是NSURLConnection，如果需要使用NSURLSession可按照需求提供。
 
-###参考资料
+### 参考资料
 
 1、[《iOS-WebP》](http://seanooi.github.io/iOS-WebP/)
 

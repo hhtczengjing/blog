@@ -29,7 +29,7 @@ void objc_removeAssociatedObjects(id object)
 开发者可以通过上面的几个函数在分类中给已存在的类中添加自定义的属性。
 
 
-##关联对象的特性
+## 关联对象的特性
 
 在`#import <objc/runtime.h>`中关于objc_AssociationPolicy的定义如下：
 
@@ -57,33 +57,32 @@ typedef uintptr_t objc_AssociationPolicy;
 - `OBJC_ASSOCIATION_COPY`,给关联对象指定原子copy特性,相当于`@property(atomic,copy)`
 
 
-##示例代码
+## 示例代码
+
 创建一个NSObject名为AssociatedObject的Category，向其中关联一个叫做associatedObject的属性。
 
-#####NSObject+AssociatedObject.h
+##### NSObject+AssociatedObject.h
+
 ```
 @interface NSObject (AssociatedObject)
 
 @property (nonatomic, strong) id associatedObject;
 
 @end
-
 ```
 
-#####NSObject+AssociatedObject.m
+##### NSObject+AssociatedObject.m
 
 ```
 @implementation NSObject (AssociatedObject)
 
 @dynamic associatedObject;
 
-- (void)setAssociatedObject:(id)object
-{
+- (void)setAssociatedObject:(id)object {
     objc_setAssociatedObject(self, @selector(associatedObject), object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id)associatedObject
-{
+- (id)associatedObject {
     return objc_getAssociatedObject(self, @selector(associatedObject),);
 }
 
@@ -99,7 +98,7 @@ typedef uintptr_t objc_AssociationPolicy;
 (3)key值可以使用`@selector(associatedObject)`,也可以使用
 `static const void *AssociatedObjectKey = &AssociatedObjectKey;`,推荐使用前者
 
-##小结
+## 小结
 
 (1)使用关联，我们可以不用修改类的定义而为其增加存储空间，在对于无法访问到类的源码的时候非常有用
 
@@ -107,7 +106,7 @@ typedef uintptr_t objc_AssociationPolicy;
 
 (3)关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的。
 
-##延伸阅读
+## 延伸阅读
 
 1、[《objc_setAssociatedObject通过alert传值》](http://blog.csdn.net/sijiazhentan/article/details/11772827)
 

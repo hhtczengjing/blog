@@ -18,7 +18,7 @@ tags: iOS
 
 本文主要介绍如何在应用中集成`Touch ID`来校验用户的身份。
 
-###集成步骤
+### 集成步骤
 
 1、环境要求
 
@@ -109,7 +109,7 @@ tags: iOS
 }
 ```
 
-###参考资料
+### 参考资料
 
 1、[《Touch ID Tutorial for Objective-C》](http://www.devfright.com/touch-id-tutorial-objective-c/)
 

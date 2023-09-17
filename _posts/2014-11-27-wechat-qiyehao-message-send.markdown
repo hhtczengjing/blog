@@ -9,7 +9,7 @@ tags: WeChat
 
 和服务号不同的是企业号中放开了发送消息的限制，将企业内部的业务需要和微信的消息体系结合起来可以带来更多的便利。在前面也介绍到了在响应用户的请求的时候如果无法及时回应可以直接返回空的消息体，然后调用主动发送消息的接口进行消息的发送来解决这个问题。
 
-###发送消息的类型及数据格式
+### 发送消息的类型及数据格式
 
 1、text消息
 
@@ -197,9 +197,7 @@ tags: WeChat
 
 ![wechat_msg_send_mpnews.png](/images/wechat_qiyehao_msg_send/wechat_msg_send_mpnews.png)
 
-
-
-###发送消息处理示例
+### 发送消息处理示例
 
 1、获取AccessToken
 
@@ -260,7 +258,7 @@ String json = "{\"touser\":\"@all\",\"msgtype\":\"text\",\"agentid\":\"1\",\"tex
 sendMessage(token, json);
 ```
 
-###参考资料
+### 参考资料
 
 1、[《发送接口说明》](http://qydev.weixin.qq.com/wiki/index.php?title=发送接口说明)
 

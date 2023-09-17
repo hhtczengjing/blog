@@ -10,7 +10,7 @@ SVN是Subversion的简称，是一个开放源代码的版本控制系统，相�
 
 ![tortoisesvn_logo.png](/images/ios_svn/tortoisesvn_logo.png)
 
-##SVN命令行工具
+## SVN命令行工具
 
 1、从本地导入代码到服务器(第一次初始化导入)，在终端中输入：
 
@@ -46,7 +46,7 @@ SVN是Subversion的简称，是一个开放源代码的版本控制系统，相�
 
 使用命令行的工具操作SVN确实不太方便，因此下面介绍在MAC下比较优秀的SVN客户端的使用方法：
 
-##Cornerstone客户端的使用
+## Cornerstone客户端的使用
 
 1、从SVN服务器导出项目
 
@@ -100,7 +100,7 @@ Where:指的是本地存储的目录，另外下面可以选择导出的SVN版�
 
 （2）可以通过查看Log来比较不同版本的修改情况。
 
-##SmartSVN客户端的使用
+## SmartSVN客户端的使用
 
 1、从SVN服务器导出项目到本地
 
@@ -120,7 +120,7 @@ Where:指的是本地存储的目录，另外下面可以选择导出的SVN版�
 
 ![smartsvn_client_003.jpg](/images/ios_svn/smartsvn_client_003.jpg)
 
-##参考资料
+## 参考资料
 
 1、[《Mac环境下svn的使用》](http://blog.csdn.net/q199109106q/article/details/8655204)
 

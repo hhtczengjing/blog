@@ -12,7 +12,7 @@ tags: iOS
 
 iOS9提供了四类API（`Home Screen Quick Action`、`UIKit Peek & Pop` 、`WebView Peek & Pop` 和`UITouch Force Properties`）用于操作3D Touch(`Pressure Sensitivity` 、 `Peek and Pop` 和 `Quick Actions`)。不过无论使用哪一种API，首先需要做的事情是检查3D Touch是否可用。
 
-###检测是否支持3D Touch
+### 检测是否支持3D Touch
 
 在iOS9中提供如下的接口用于检查设备是否支持3D Touch：
 
@@ -42,17 +42,17 @@ if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable
 }
 ```
 
-####Home Screen Quick Action
+#### Home Screen Quick Action
 
 在iPhone 6s或者iPhone 6s Plus上面，当用户按压App的Icon图标的时候，会弹出Quick Action，当用户选择其中的Action的时候，App会启动并实现相应的功能。这一过程相当于在PC上面的右键快捷菜单的功能，如下图所示的效果：
 
 ![maps_directions_home](/images/ios9_3d_touch/maps_directions_home_2x.png)
 
-####开发环境
+#### 开发环境
 
 官方文档上指出Xcode7.0以上的模拟器不支持3D Touch，必须使用支持3D Touch的设备（iPhone 6s或者iPhone 6s Plus）进行调试。但是这并不能阻止我们在模拟器上面进行调试，GitHub上面早有大神提供了模拟器调试Quick Action的方法，项目的地址是：`https://github.com/DeskConnect/SBShortcutMenuSimulator`。下面简单介绍一下安装的步骤：
 
-#####①编译
+##### ①编译
 
 ```
 git clone https://github.com/DeskConnect/SBShortcutMenuSimulator.git
@@ -60,7 +60,7 @@ cd SBShortcutMenuSimulat
 make
 ```
 
-#####②让SpringBoard支持SBShortcutMenuSimulator
+##### ②让SpringBoard支持SBShortcutMenuSimulator
 
 在开启模拟器的情况下，在SBShortcutMenuSimulator目录下面执行如下两行命令：
 
@@ -69,11 +69,11 @@ xcrun simctl spawn booted launchctl debug system/com.apple.SpringBoard --environ
 xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
 ```
 
-#####③预览效果
+##### ③预览效果
 
 `echo 'com.apple.mobilecal' | nc 127.0.0.1 8000`，其中com.apple.mobilecal指的是系统自带的日历的Bundle ID，运行的时候替换成你的应用的Bundle ID即可。
 
-####创建方式
+#### 创建方式
 
 上面的示例图中有四个Action Item，其中每个Action是使用UIApplicationShortcutItem这个对象进行描述的，下面列出每一个UIApplicationShortcutItem中能够包含的信息：
 
@@ -81,7 +81,7 @@ xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
 
 创建Quick Action有两种方式：静态和动态
 
-#####①以静态方式创建
+##### ①以静态方式创建
 
 静态创建的方式是在Info.plist文件中进行声明的
 
@@ -121,7 +121,7 @@ xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
 </array>
 ```
 
-#####②以动态方式创建
+##### ②以动态方式创建
 
 动态创建是在程序初始化的时候用代码动态添加。`UIApplication`对象多了一个支持快捷方式的数组（shortcutItems）, 如果需要增加快捷方式，可以赋值给shortcutItems属性。
 
@@ -130,7 +130,6 @@ xcrun simctl spawn booted launchctl stop com.apple.SpringBoard
 ```
 
 示例代码如下：
-
 
 ```
 //创建ShortcutItem
@@ -155,7 +154,7 @@ UIMutableApplicationShortcutItem *item3 = [[UIMutableApplicationShortcutItem all
 
 2)如果静态和动态方式同时使用的时候，给UIApplication的shortcutItems赋值的时候不会覆盖
 
-####响应回调
+#### 响应回调
 
 当app在后台的时候UIApplication提供了一个回调方法
 
@@ -189,7 +188,7 @@ UIApplicationShortcutItem *item = [launchOptions valueForKey:UIApplicationLaunch
 }
 ```
 
-####UIKit Peek & Pop
+#### UIKit Peek & Pop
 
 Peek和Pop手势给了iOS9用户预览和体验内容的全新方法。iPhone6s/iPhone6s Plus可通过用户触摸力度感知需求，并给出更加丰富的操作选项。目前这项功能已经在邮件、照片、日历等应用中启用。
 
@@ -197,7 +196,7 @@ Peek和Pop手势给了iOS9用户预览和体验内容的全新方法。iPhone6s/
 
 ![peek_2x.png](/images/ios9_3d_touch/peek_2x.png)
 
-#####1、检测3D Touch是否可用，如果可用就注册
+##### 1、检测3D Touch是否可用，如果可用就注册
 
 ```
 - (void)check3DTouchAvailable {
@@ -208,7 +207,7 @@ Peek和Pop手势给了iOS9用户预览和体验内容的全新方法。iPhone6s/
 }
 ```
 
-#####2、实现UIViewControllerPreviewingDelegate的Protocol
+##### 2、实现UIViewControllerPreviewingDelegate的Protocol
 
 ①Peek手势相关处理:
 
@@ -277,7 +276,7 @@ Peek和Pop手势给了iOS9用户预览和体验内容的全新方法。iPhone6s/
 }
 ```
 
-###参考资料
+### 参考资料
 
 1.[《Adopting 3D Touch on iPhone》](https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/Adopting3DTouchOniPhone/)
 
