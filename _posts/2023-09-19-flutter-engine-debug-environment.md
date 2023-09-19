@@ -3,7 +3,7 @@ layout: post
 title: "搭建Flutter引擎源码调试环境"
 date: 2023-09-19 23:50:26 +0800
 comments: true
-categories: iOS
+tags: iOS
 ---
 
 最近在排查问题的时候总会遇到一些和 Flutter 引擎相关的问题，需要直接能在Xcode里面挂在引擎的源码能进行断点Debug，这里记录一下搭建Flutter引擎源码调试环境过程：
