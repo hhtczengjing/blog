@@ -105,7 +105,7 @@ cd engine/src
 
 ./flutter/tools/gn --unoptimized # host_debug_unopt
 ./flutter/tools/gn --runtime-mode=debug --ios --simulator --unoptimized # 模拟器Debug
-./flutter/tools/gn --runtime-mode=debug --ios --ios-cpu=arm64 # 设备Debug
+./flutter/tools/gn --runtime-mode=debug --ios --ios-cpu=arm64 --unoptimized # 设备Debug
 ./flutter/tools/gn --runtime-mode=release --ios --ios-cpu=arm64 # 设备Release
 ```
 
@@ -113,13 +113,13 @@ cd engine/src
 
 - （1）`--unoptimized`: 是否优化性能，默认优化
 - （2）`--runtime-mode`: 可选值debug/profile/release/jit_release
-- （1）`--target-os`:  指定编译产物的平台，可选值android/ios/linux/fuchsia/win/winuwp
-- （3）`--ios`: iOS设备
-- （3）`--ios-cpu`: 可选值arm/arm64
-- （4）`--simulator`: iOS模拟器
-- （4）`--simulator-cpu`: 可选值x64/arm64
-- （4）`--android`: Android
-- （4）`--android-cpu`: 可选值arm/x64/x86/arm64
+- （3）`--target-os`:  指定编译产物的平台，可选值android/ios/linux/fuchsia/win/winuwp
+- （4）`--ios`: iOS设备
+- （5）`--ios-cpu`: 可选值arm/arm64
+- （6）`--simulator`: iOS模拟器
+- （7）`--simulator-cpu`: 可选值x64/arm64
+- （8）`--android`: Android
+- （9）`--android-cpu`: 可选值arm/x64/x86/arm64
 
 ### 编译
 
@@ -128,7 +128,7 @@ cd engine/src
 
 ninja -C out/host_debug_unopt
 ninja -C out/ios_debug_sim_unopt
-ninja -C out/ios_debug
+ninja -C out/ios_debug_unopt
 ninja -C out/ios_release
 ```
 
@@ -141,7 +141,7 @@ flutter create -i objc -a java flutter_demo
 flutter run --local-engine-src-path=/Users/zengjing/flutter_source/engine/src --local-engine=ios_debug_sim_unopt --verbose
 ```
 
-2、把 `ios_debug_sim_unopt` 里面的 `flutter_engine.xcodeproj` 拖进需要调试的Demo工程目录
+2、把 `ios_debug_sim_unopt` 或 `ios_debug_unopt` 里面的 `flutter_engine.xcodeproj` 拖进需要调试的Demo工程目录
 
 3、在Genrated.xcconfig中加上内容为
 
