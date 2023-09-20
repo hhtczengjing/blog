@@ -48,14 +48,16 @@ case "$1" in
 esac
 ```
 
+从代码直接可以看到只要在 echo 后面放对应的用户名密码就行了。这里需要说明的是脚本文件需要赋予可执行权限。
+
 那么接下来的问题就来了，怎么获取配置的凭据数据？发现了一个插件 [Credentials Binding Plugin](https://www.jenkins.io/doc/pipeline/steps/credentials-binding/) , 官方提供了示例代码
 
 ```
 node {
   withCredentials([usernamePassword(credentialsId: 'mylogin', usernameVariable: 'VAR_USERNAME', passwordVariable: 'VAR_PASSWORD')]) {
     sh '''
-      echo $GIT_USERNAME
-      echo $GIT_PASSWORD
+      echo $VAR_USERNAME
+      echo $VAR_PASSWORD
     '''
   }
 }
