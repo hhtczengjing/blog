@@ -107,7 +107,7 @@ tags: iOS
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Method presentM = class_getInstanceMethod(self.class, @selector(presentViewController:animated:completion:));
-        Method presentSwizzlingM = class_getInstanceMethod(self.class, @selector(zjh_presentViewController:animated:completion:));
+        Method presentSwizzlingM = class_getInstanceMethod(self.class, @selector(dz_presentViewController:animated:completion:));
         method_exchangeImplementations(presentM, presentSwizzlingM);
     });
 }
