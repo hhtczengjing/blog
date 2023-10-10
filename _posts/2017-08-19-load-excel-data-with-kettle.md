@@ -28,7 +28,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
 
 表示Java环境已经安装，如果没有的话需要先安装JDK。
 
-#####（1）下载安装JDK
+##### （1）下载安装JDK
 
 到Oracle的官网上下载最新的版本JDK，网址如下：
 
@@ -112,33 +112,33 @@ def parse_excel_file(file, index=1):
 
 #### 2、配置数据转换
 
-#####（1）从左边的`核心对象`里面选中控件直接拖到右边的区域，各个控件之间可以用箭头连起来(按住Shift直接拖即可)
+##### （1）从左边的`核心对象`里面选中控件直接拖到右边的区域，各个控件之间可以用箭头连起来(按住Shift直接拖即可)
 
 ![kettle-demo-03.png](/images/load-excel-data-with-kettle/kettle-demo-03.png)
 
-#####（2）双击Excel输入配置解析
+##### （2）双击Excel输入配置解析
 
 ![kettle-demo-04.png](/images/load-excel-data-with-kettle/kettle-demo-04.png)
 
 1) 点击`浏览`选择Excel文档的路径(xls格式），选择完成后点击`增加`。
 
-2）选择`工作表`的选项卡，在此页面配置要解析的Sheet和起始行列信息。
+2) 选择`工作表`的选项卡，在此页面配置要解析的Sheet和起始行列信息。
 
 ![kettle-demo-05.png](/images/load-excel-data-with-kettle/kettle-demo-05.png)
 
-3）选择`字段`的选项卡，在此页面点击`获取来自头部数据的字段`，Kettle会自动获取表头生成字段信息。
+3) 选择`字段`的选项卡，在此页面点击`获取来自头部数据的字段`，Kettle会自动获取表头生成字段信息。
 
 ![kettle-demo-06.png](/images/load-excel-data-with-kettle/kettle-demo-06.png)
 
-#####（3）使用JavaScript代码自动生成主键
+##### （3）使用JavaScript代码自动生成主键
 
 由于业务方需要在将数据保存到数据库的时候需要指定一个主键，这里可以直接使用JavaScript的代码来自动生成一个UUID作为主键。
 
 ![kettle-demo-07.png](/images/load-excel-data-with-kettle/kettle-demo-07.png)
 
-#####（4）输出数据到目标数据库
+##### （4）输出数据到目标数据库
 
-1）配置数据源
+1) 配置数据源
 
 ![kettle-demo-08.png](/images/load-excel-data-with-kettle/kettle-demo-08-1.png)
 
@@ -146,7 +146,7 @@ def parse_excel_file(file, index=1):
 
 ![kettle-demo-08.png](/images/load-excel-data-with-kettle/kettle-demo-08-1-error.png)
 
-2）配置目标表和字段映射
+2) 配置目标表和字段映射
 
 配置好数据源后需要配置目标表的信息，如表名、数据库字段对应等。
 
