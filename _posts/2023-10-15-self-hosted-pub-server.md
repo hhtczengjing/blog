@@ -119,7 +119,7 @@ static shelf.Response _okWithJsonString(String data) => shelf.Response.ok(
 如果要调试代码，需要有 mongo 环境，使用 docker 快速安装一个：
 
 ```
-docker run -d --name mongo -p 27017:27017 mongo
+docker run -d -v ~/docker/mongo:/data/db --name mongo -p 27017:27017 mongo:latest
 ```
 
 代码修改完重新编译运行，找一个 Flutter 项目在执行：
@@ -142,6 +142,8 @@ FROM google/dart
 
 WORKDIR /app
 COPY ./unpub ./
+VOLUME /app/unpub-packages
+VOLUME /app/mirror-packages
 RUN dart pub get
 ENTRYPOINT ["dart", "run", "bin/unpub.dart", "--database", "mongodb://mongo:27017/dart_pub"]
 ```
@@ -179,6 +181,12 @@ services:
 docker-compose up --build -d
 ```
 
+停止：
+
+```
+docker-compose down
+```
+
 推荐使用 nginx 做一个域名的代理，示例配置如下：
 
 ```
@@ -198,8 +206,15 @@ http {
 > 附：
 
 - (1) 代码在 https://github.com/hhtczengjing/unpub 的 develop 分支
+
 - (2) 关于私有库的托管部分后续完善
 
 ### 参考资料
 
 - 1、[Configuring pub environment variables](https://dart.dev/tools/pub/environment-variables)
+
+- 2、[unpub](https://github.com/bytedance/unpub)
+
+- 3、[pub-mirror](https://github.com/tuna/pub-mirror)
+
+- 4、[pub.dev](https://pub.dev/)
