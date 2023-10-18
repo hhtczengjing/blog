@@ -30,4 +30,24 @@ tags: Note
 
 ![theme-selected](/images/macos_iterm2/theme-selected.png)
 
+### 安装 Oh My Zsh
+
+[Oh My Zsh](https://ohmyz.sh/) 是一个开源的、社区驱动的命令行工具。Oh My Zsh 是基于 zsh 命令行的一个扩展工具集，提供了丰富的扩展功能。
+
+![omz-update](/images/macos_iterm2/omz-update.png)
+
+先确保已经安装zsh，打开终端，在终端上输入如下命令: 
+
+```
+➜  ~ zsh --version
+
+zsh 5.9 (x86_64-apple-darwin22.0)
+```
+
+> 安装
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
 目前就只用了这些，后续遇到了就再补充吧....
