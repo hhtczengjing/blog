@@ -40,7 +40,7 @@ iOS 原生代码的修改编译调试，都是一遍遍的 `Command + R` 重新�
 
 #### 3、项目配置
 
-#####（1）AppDelegate 的 didFinishLaunchingWithOptions 方法中添加注入代码
+##### （1）AppDelegate 的 didFinishLaunchingWithOptions 方法中添加注入代码
 
 以 OC版本 为例，Swift的可以参考官方的文档，基本上也是一样的做法：
 
