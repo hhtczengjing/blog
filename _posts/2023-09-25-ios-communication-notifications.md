@@ -30,7 +30,7 @@ tags: iOS
       "alert": {
          "title": "消息标题",
          "body": "消息内容"
-     },
+     }
    },
    "icon": "https://xxxxxx"
 }
