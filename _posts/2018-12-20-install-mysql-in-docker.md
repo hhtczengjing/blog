@@ -47,3 +47,18 @@ docker run -d -p 3306:3306 \
 - (4) -v /Users/zengjing/docker/mysql/data:/var/lib/mysql 将本机的文件目录挂载到容器对应的目录（/var/lib/mysql）中。这样可以通过数据卷实现容器中数据的持久化。
 - (6) -e MYSQL_ROOT_PASSWORD="111111"-e 表示设置环境变量，此处设置了 mysql root 用户的初始密码为 123456。
 - (7) mysql:5.7表示使用 mysql 5.7 启动一个容器。
+
+
+如果是在Apple芯片的电脑上面运行会报如下错误:
+
+```
+docker: no matching manifest for linux/arm64/v8 in the manifest list entries.
+```
+
+解决办法：
+
+先执行下面的命令然后再运行上面的安装脚本：
+
+```
+docker pull --platform linux/x86_64 mysql:5.7
+```
