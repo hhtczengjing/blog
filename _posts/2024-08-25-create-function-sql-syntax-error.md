@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MySQL创建函数语法报错的解决过程"
-date: 2024-08-25 11:40:00 +0800
+date: 2024-08-25 10:40:00 +0800
 comments: true
 tags: Note
 ---
