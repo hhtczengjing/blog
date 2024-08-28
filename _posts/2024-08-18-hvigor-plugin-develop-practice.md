@@ -151,6 +151,7 @@ ts.forEachChild(sourceFile, (node: ts.Node) => {
 
 根据提取到的数据结合动态模板来生成模板代码。
 
+{% raw %}
 ```
 {{#each pluginList}}
 import { {{identifier}} } from './{{file}}';
@@ -184,6 +185,7 @@ function execute{{module}}Service(module: string, action: string, params: object
 
 {{/each}}
 ```
+{% endraw %}
 
 对模板进行编译解析生成具体的代码：
 
