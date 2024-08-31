@@ -30,10 +30,11 @@
     line-height: 1.3em;
 
     a {
-      color: $gray-darkest;
+      //color: $gray-darkest;
+      color: var(--text-primary-color);
 
       &:hover {
-        color: $hover-color;
+        color: var(--link-hover-color);
       }
 
     }
@@ -59,7 +60,7 @@
   .post-list__divider {
     width: 30%;
     margin: 2.2em 0 2.1em 0;
-    border-top: 1px solid $gray-light;
+    border-top: 1px solid var(--post-divider-color);
   }
 
   .post-list-archive {
@@ -86,5 +87,5 @@
   .post-list__divider__archive {
     width: 50%;
     margin: 2.2em 0 2.1em 0;
-    border-top: 1px solid $gray-light;
+    border-top: 1px solid var(--post-divider-color);
   }

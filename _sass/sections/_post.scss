@@ -60,7 +60,7 @@
     display: block;
     width: 30%;
     margin: 2em 0;
-    border-top: 1px solid $gray-light;
+    border-top: 1px solid var(--post-divider-color);
   }
 
 }

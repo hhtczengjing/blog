@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+@mixin light-scheme {
+    --bg-default-color:     #FFFFFF;
+
+    --precode-backgroud-color: #e8f2fb;
+    --precode-border-color:    #c9e1f6;
+
+    --text-primary-color:   #666666;
+    --text-regular-color:   #999999;
+    --text-secondary-color: #c7c7c7;
+
+    --link-text-color:      #BF1827;
+    --link-hover-color:     #7b0f19;
+
+    --post-divider-color:   #DDDDDD;
+}

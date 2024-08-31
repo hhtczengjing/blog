@@ -1,0 +1,17 @@
+@import 'variables.scss';
+
+@mixin dark-scheme {
+    --bg-default-color:     #141414;
+
+    --precode-backgroud-color: #0D0D0D;
+    --precode-border-color:    #242424;
+    
+    --text-primary-color:   #F2F2F2;
+    --text-regular-color:   #999999;
+    --text-secondary-color: #999999;
+
+    --link-text-color:      #BF1827;
+    --link-hover-color:     #7b0f19;
+
+    --post-divider-color:   rgb(45, 44, 44);
+}
