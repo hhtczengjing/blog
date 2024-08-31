@@ -12,9 +12,11 @@ tags: Note
 
 ![github-actions](/images/blog-support-dark-mode//github-actions.png)
 
-最近想把博客适配支持一下暗黑模式，需要在本地调试一下，按照之前的文档安装了一下环境，结果是各种报错，折腾了个把小时，最后还是没搞定。最终采用的是使用 Docker 搭建环境映射本地markdow的路径在容器内进行编译的方式搞定，使用方式比较简单：
+最近想把博客适配支持一下暗黑模式，需要在本地调试一下，按照之前的文档安装了一下环境，结果是各种报错，折腾了个把小时，最后还是没搞定。
 
-将 [jekyll-docker](https://github.com/hhtczengjing/jekyll-docker) 仓库的3个文件拷贝到 blog 源码根目录下面，然后按照下面的命令操作即可：
+最终采用的是使用 Docker 搭建环境映射本地markdow的路径在容器内进行编译的方式搞定，使用方式比较简单：
+
+将 [jekyll-docker](https://github.com/hhtczengjing/jekyll-docker) 仓库的3个文件拷贝到 blog 源码根目录下面，然后按照下面的命令操作即可（主要实现参考 [BretFisher/jekyll-serve](https://github.com/BretFisher/jekyll-serve) 这个项目，对初始化环境做了一些调整）：
 
 ```
 # 启动服务
@@ -25,13 +27,11 @@ docker-compose down
 
 ![docker-jekyll-1](/images/blog-support-dark-mode/docker-jekyll-1.png)
 
-*** 注意 ***：
+> 说明：
 
-1、容器创建完成后，第一次访问 http://localhost:4000 可能会失败，因为容器还需要等jekyll服务初始化完成。
+容器创建完成后，第一次访问 http://localhost:4000 可能会失败，因为容器还需要等 jekyll 服务初始化完成。
 
 ![docker-jekyll-2](/images/blog-support-dark-mode/docker-jekyll-2.png)
-
-2、 [jekyll-docker](https://github.com/hhtczengjing/jekyll-docker) 主要实现参考 [BretFisher/jekyll-serve](https://github.com/BretFisher/jekyll-serve) 这个项目，对初始化环境做了一些调整
 
 支持暗黑模式原理比较简单，利用 `prefers-color-scheme` 这个媒体查询，实现深色和浅色模式下的颜色调整，示例代码如下：
 
@@ -119,7 +119,7 @@ body {
 
 ![blog-preview](/images/blog-support-dark-mode/blog-preview.png)
 
-算是勉强能用把，后续还要对细节进行调整。
+算是勉强能用吧，后续还要对细节进行调整。
 
 ### 参考资料
 
