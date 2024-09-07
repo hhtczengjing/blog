@@ -62,6 +62,8 @@ tags: Note
 
 > 可以将 GoogleChromePortable.exe 修改成任意名称，比如 chrome49.exe 然后创建一个桌面快捷方式。
 
+上面的步骤做了一个GitHub Workflow 可以实现自动提取，完整代码见：https://github.com/hhtczengjing/portable_chrome.git `.github/workflows/builder.yml`
+
 ### 参考资料
 
 - 1、[Chromium 历史版本离线安装包 - 下载方法](https://github.com/vikyd/note/blob/master/chrome_offline_download.md)
