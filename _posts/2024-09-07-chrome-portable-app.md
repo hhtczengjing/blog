@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "制作Chrome多版本测试程序"
+title: "Windows下制作Chrome多版本测试程序"
 date: 2024-09-07 14:40:00 +0800
 comments: true
 tags: Note
@@ -60,9 +60,9 @@ tags: Note
 
 ![portable-3](/images/chrome-portable-app/portable-3.png)
 
-> 可以将 GoogleChromePortable.exe 修改成任意名称，比如 chrome49.exe 然后创建一个桌面快捷方式。
+> 可以将 GoogleChromePortable.exe 修改成任意名称，比如 chrome49.exe 然后创建一个桌面快捷方式。关闭浏览器窗口后 GoogleChromePortable.exe 进程不会自动结束，需要强制清理(参考exit.bat)。
 
-上面的步骤做了一个GitHub Workflow 可以实现自动提取，完整代码见：https://github.com/hhtczengjing/portable_chrome.git `.github/workflows/builder.yml`
+上面的步骤做了一个GitHub Workflow 可以实现自动提取，完整代码见：https://github.com/hhtczengjing/portable_chrome.git `.github/workflows/builder.yml`，也可以使用 `build.bat`。
 
 ### 参考资料
 
