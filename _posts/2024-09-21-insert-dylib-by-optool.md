@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "iOS使用optool注入动态库"
-date: 2024-09-31 14:40:00 +0800
+date: 2024-09-21 14:40:00 +0800
 comments: true
 tags: Note
 ---
@@ -207,3 +207,5 @@ macho.header.sizeofcmds += command.cmdsize;
 - 4、[Mach-O 文件格式探索](https://www.desgard.com/iOS-Source-Probe/C/mach-o/Mach-O%20%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E6%8E%A2%E7%B4%A2.html)
 
 - 5、[聊聊 Mach-O 文件格式](https://geneblue.github.io/2021/01/04/osx/sec--MachO-file-format/)
+
+- 6、[macOS Library Injection](https://book.hacktricks.xyz/v/cn/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-library-injection)
