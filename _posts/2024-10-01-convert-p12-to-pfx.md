@@ -38,6 +38,7 @@ openssl pkcs12 -in cert.p12 -out clientcert.pem -nodes -clcerts
 会提示需要输入密码，这里需要输入 p12 证书对应的密码。
 
 > 参数说明：
+
 - `-in`：指定输入文件。在这里，cert.p12 是输入的 PKCS#12 格式的证书文件，它包含了要提取的客户端证书以及可能的私钥和其他相关信息。
 - `-out`：指定输出文件。`clientcert.pem`是输出的证书文件的名称，PEM 是一种常用的用于存储证书、私钥等加密对象的文本格式，以 Base64 编码存储数据。
 - `-nodes`：这个参数表示不加密私钥。如果没有这个参数，提取出来的私钥会被加密，控制台会提示输入密码。
@@ -55,6 +56,7 @@ openssl x509 -in AppleRootCA-G3.cer -inform DER -out AppleRootCA-G3.pem
 ![apple-pki](/images/convert-p12-to-pfx/apple-pki.png)
 
 > 参数说明：
+
 - `-in`：用于指定输入文件。在这里，`AppleWWDRCAG3.cer`/`AppleRootCA-G3.cer` 是要被转换格式的输入证书文件。
 - `-inform`: 指定输入文件的格式。DER（Distinguished Encoding Rules）是一种二进制编码格式，用于表示 X.509 证书等 ASN.1（Abstract Syntax Notation One）结构的数据。
 - `-out`：用于指定输出文件。
@@ -74,6 +76,7 @@ openssl pkcs12 -export -in clientcertchain.pem -out clientcertchain.pfx
 ```
 
 > 参数说明：
+
 - `-export`：这个参数表示执行导出操作，即将输入的内容转换为 PKCS#12 格式并保存到指定的输出文件中。
 - `-in`：指定输入文件。这里的 clientcertchain.pem 是输入的包含证书链的 PEM 格式文件。
 - `-out`：指定输出文件。clientcertchain.pfx 是输出文件的名称，其格式为 PKCS#12 格式，这种格式常用于在不同系统或应用程序之间交换包含私钥、证书等的加密包。
@@ -109,10 +112,10 @@ mkdir -p $(pwd)/build/openssl/lib $(pwd)/build/openssl/bin
 lipo -create $(pwd)/build/openssl-arm64/lib/libssl.a $(pwd)/build/openssl-x86_64/lib/libssl.a -output $(pwd)/build/lib/libssl.a
 lipo -create $(pwd)/build/openssl-arm64/lib/libcrypto.a $(pwd)/build/openssl-x86_64/lib/libcrypto.a -output $(pwd)/build/lib/libcrypto.a
 
-lipo -info $(pwd)/build/openssl-arm64/bin/openssl $(pwd)/build/openssl-x86_64/bin/openssl -output $(pwd)/build/openssl/bin/openssl
+lipo -create $(pwd)/build/openssl-arm64/bin/openssl $(pwd)/build/openssl-x86_64/bin/openssl -output $(pwd)/build/openssl/bin/openssl
 ```
 
-编译后的产物在 `build/openssl` 目录下。
+编译后的产物在 `build/openssl` 目录下。完整的编译脚本可以参考：https://github.com/hhtczengjing/openssl_builder
 
 ### 参考资料
 
