@@ -29,7 +29,7 @@ username("user@fastlane.tools")
 Spaceship.login('your_apple_id')
 ```
 
-如果遇到下面的错误提示：
+如果不想在代码里面指定appleid可以使用环境变量`FASTLANE_USER`来替代，在使用过程中如果遇到下面的错误提示：
 
 ```
  `parse_response': {"responseId"=>"b2b8416a-5efe-4e00-8f70-1da351095d63", "resultCode"=>3018, "resultString"=>"Please update to Xcode 7.3 or later to continue developing with your Apple ID.", "userString"=>"Please update to Xcode 7.3 or later to continue developing with your Apple ID.", "creationTimestamp"=>"2024-10-08T04:06:37Z", "protocolVersion"=>"QH65B2", "userLocale"=>"en_US", "requestUrl"=>"https://developerservices2.apple.com/services/QH65B2/ios/listProvisioningProfiles.action", "httpCode"=>200} (Spaceship::UnexpectedResponse)
@@ -45,7 +45,10 @@ export SPACESHIP_AVOID_XCODE_API=1
 
 ![start_login](/images/ios-cert-spaceship/start_login.png)
 
-> 登录完成后会缓存会话的状态，生成的会话将存储在 `~/.fastlane/spaceship/[email]/cookie` 里面。会话有效期约为一个月左右，基本上登录一次能管好几天。
+> 说明：
+
+- 登录完成后会缓存会话的状态，生成的会话将存储在 `~/.fastlane/spaceship/[email]/cookie` 里面。会话有效期约为一个月左右，但是这个时间并不是可控的，有很多因素会导致Session过期。
+- 如果需要在CI系统里面使用可以将上面的的session拷贝出来放在环境变量`FASTLANE_SESSION`里面使用
 
 2、维护设备列表
 
@@ -168,3 +171,5 @@ end
 - 2、[Spaceship](https://congoliver.github.io/2019/05/23/Spaceship/)
 
 - 3、[Spaceship/Portal/AppService](https://www.rubydoc.info/gems/spaceship/0.36.1/Spaceship/Portal/AppService)
+
+- 4、[解决CI+fastlane传包需要验证码的问题](https://fanthus.github.io/2023/07/13/%E8%A7%A3%E5%86%B3ci-fastlane%E4%BC%A0%E5%8C%85%E9%9C%80%E8%A6%81%E9%AA%8C%E8%AF%81%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/)
