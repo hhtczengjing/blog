@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HarmonyOS NEXT HAP安装工具"
-date: 2024-10-12 23:00:00 +0800
+date: 2024-11-12 23:00:00 +0800
 comments: true
 tags: Note
 ---
