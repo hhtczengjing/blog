@@ -82,7 +82,11 @@ rvm use ruby-3.0.0
 git clone https://github.com/CocoaPods/CocoaPods.git
 ```
 
-如果需要调试
+根据实际需要切换到自己需要的版本：
+
+```
+git checkout `pod --version`
+```
 
 #### 创建 Gemfile 文件
 
