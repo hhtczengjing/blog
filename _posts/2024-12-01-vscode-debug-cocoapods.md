@@ -62,14 +62,23 @@ brew link --overwrite openssl@1.1
 rvm install ruby-3.0.0 --with-openssl-dir=`brew --prefix openssl@1.1`
 ```
 
+安装完成后，切换到当前安装的版本：
+
+```
+rvm use ruby-3.0.0
+```
+
 ### 配置调试项目
 
-目录结构：
+#### 1、下载 CocoPods 源码
 
 ```
+git clone https://github.com/CocoaPods/CocoaPods.git
 ```
 
-创建 `Gemfile` 
+如果需要调试
+
+#### 2、创建 Gemfile 文件
 
 ```
 source 'https://rubygems.org'
@@ -80,29 +89,39 @@ gem 'debase', '0.2.7'
 gem 'cocoapods', path: './CocoaPods/'
 ```
 
-参考 https://github.com/ruby-debug/debase/issues/92 可以使用下面的命令
+然后执行 `bundle install`
+
+如果报错，参考 https://github.com/ruby-debug/debase/issues/92 可以使用下面的命令
 
 ```
 gem install debase -v0.2.5.beta2 -- --with-cflags="-Wno-incompatible-function-pointer-types"
 gem install ruby-debug-ide -v '0.7.3'
 ```
 
+### 创建 launch.json 文件
+
+创建 `.vscode/launch.json` 文件，添加如下配置
+
 ```
 {
   "configurations": [{
-      "name": "Debug CocoaPods Plugin with Bundler",
+      "name": "Debug CocoaPods with Bundler",
       "showDebuggerOutput": true,
       "type": "Ruby",
       "request": "launch",
       "useBundler": true,
-      "cwd": "${workspaceRoot}/Testing",
-      "program": "${workspaceRoot}/cocoapods/bin/pod",
+      "cwd": "${workspaceRoot}/Demo", // 表示工作空间路径，指定一个iOS工程（需要放在当前目录下面）
+      "program": "${workspaceRoot}/cocoapods/bin/pod", // CocoaPods pod命令对应的路径
       "args": ["install"],
       "env": {}
     }
   ]
 }
 ```
+
+![start_debug.png](/images/vscode-debug-cocoapods/start_debug.png)
+
+点击 `Debug CocoaPods with Bundler` 可以启动项目。可能存在报错：
 
 (1) VSCode 没有使用RVM对应的Ruby版本
 
@@ -147,7 +166,7 @@ Uncaught exception: Unicode Normalization not appropriate for ASCII-8BIT
 }
 ```
 
-最终的 `.vscode/launch.json` 配置示例如下：
+完整的 `.vscode/launch.json` 配置示例如下：
 
 ```
 {
@@ -174,7 +193,19 @@ Uncaught exception: Unicode Normalization not appropriate for ASCII-8BIT
 }
 ```
 
-最终的效果
+最终整体目录结构如下：
+
+```
+vscode_cocoapods_debug
+│── .vscode
+│   └── launch.json
+├── CocoaPods
+├── Demo
+├── Gemfile
+├── Gemfile.lock
+```
+
+找个地方添加一个断点，运行效果
 
 ![vscode_debug_demo.png](/images/vscode-debug-cocoapods/vscode_debug_demo.png)
 
