@@ -70,7 +70,13 @@ rvm use ruby-3.0.0
 
 ### 配置调试项目
 
-#### 1、下载 CocoPods 源码
+#### 安装VSCode插件
+
+在 VSCode 中，安装 [Ruby 插件](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)。
+
+![ruby_vscode_plugin](/images/vscode-debug-cocoapods/ruby_vscode_plugin.png)
+
+#### 下载 CocoPods 源码
 
 ```
 git clone https://github.com/CocoaPods/CocoaPods.git
@@ -78,20 +84,22 @@ git clone https://github.com/CocoaPods/CocoaPods.git
 
 如果需要调试
 
-#### 2、创建 Gemfile 文件
+#### 创建 Gemfile 文件
+
+调试 Ruby 主要需要以来两个Ruby库：debase 和 ruby-debug-ide。
 
 ```
 source 'https://rubygems.org'
 
-gem 'ruby-debug-ide', '0.7.3'
-gem 'debase', '0.2.7'
+gem 'ruby-debug-ide'
+gem 'debase'
 
 gem 'cocoapods', path: './CocoaPods/'
 ```
 
 然后执行 `bundle install`
 
-如果报错，参考 https://github.com/ruby-debug/debase/issues/92 可以使用下面的命令
+如果安装 debase/ruby-debug-ide 报错，可以参考 https://github.com/ruby-debug/debase/issues/92 可以使用下面的命令：
 
 ```
 gem install debase -v0.2.5.beta2 -- --with-cflags="-Wno-incompatible-function-pointer-types"
@@ -106,10 +114,10 @@ gem install ruby-debug-ide -v '0.7.3'
 {
   "configurations": [{
       "name": "Debug CocoaPods with Bundler",
-      "showDebuggerOutput": true,
-      "type": "Ruby",
-      "request": "launch",
-      "useBundler": true,
+      "showDebuggerOutput": true, // 输出调试信息
+      "type": "Ruby", // 告诉VSCode要运行什么调试器
+      "request": "launch", // "launch"允许直接从VSCode启动提供的程序-或"attach"-允许您附加到远程调试会话
+      "useBundler": true, // rdebug-ide在内运行bundler exec 将Gemfile里面引用的库加到工程中
       "cwd": "${workspaceRoot}/Demo", // 表示工作空间路径，指定一个iOS工程（需要放在当前目录下面）
       "program": "${workspaceRoot}/cocoapods/bin/pod", // CocoaPods pod命令对应的路径
       "args": ["install"],
