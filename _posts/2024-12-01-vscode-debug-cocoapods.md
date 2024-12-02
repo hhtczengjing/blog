@@ -76,6 +76,8 @@ rvm use ruby-3.0.0
 
 ![ruby_vscode_plugin](/images/vscode-debug-cocoapods/ruby_vscode_plugin.png)
 
+> 说明：Ruby目前已经废弃（替代方案是 Ruby LSP， 试了一下没弄成功）在VSCode可能无法安装，可以到 Version History 里面手动下载然后通过离线安装的方式使用。
+
 #### 下载 CocoPods 源码
 
 ```
