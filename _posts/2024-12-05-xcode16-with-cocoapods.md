@@ -58,4 +58,4 @@ preferredProjectObjectVersion = 77;
 
 - 2、[[Xcodeproj] Unknown object version. Help Please #10604](https://github.com/CocoaPods/CocoaPods/issues/10604)
 
-- 2、[設定 Xcode 的專案相容版本 (Project-Format)](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E7%9A%84%E5%B0%88%E6%A1%88%E7%9B%B8%E5%AE%B9%E7%89%88%E6%9C%AC-project-format-efaa08e1d304)
+- 3、[設定 Xcode 的專案相容版本 (Project-Format)](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E7%9A%84%E5%B0%88%E6%A1%88%E7%9B%B8%E5%AE%B9%E7%89%88%E6%9C%AC-project-format-efaa08e1d304)
