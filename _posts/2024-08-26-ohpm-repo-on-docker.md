@@ -59,7 +59,7 @@ FROM node:18
 RUN adduser --disabled-password --gecos '' ohpm
 
 # 拷贝文件
-COPY ohpm-repo-5.0.5.0 /home/ohpm/ohpm-repo
+COPY ohpm-repo-5.0.7.0 /home/ohpm/ohpm-repo
 COPY start.sh /home/ohpm
 
 # 给目录/文件授权
@@ -93,9 +93,9 @@ ohpm-repo start
 编译运行：
 
 ```
-docker build -t zengjing/ohpm-repo:5.0.5.0 .
+docker build -t zengjing/ohpm-repo:5.0.7.0 .
 
-docker run -d -p 8088:8088 --name ohpm-repo zengjing/ohpm-repo:5.0.5.0
+docker run -d -p 8088:8088 --name ohpm-repo zengjing/ohpm-repo:5.0.7.0
 ```
 
 找了几个第三方库上传试了一下，效果还行：
@@ -105,6 +105,16 @@ docker run -d -p 8088:8088 --name ohpm-repo zengjing/ohpm-repo:5.0.5.0
 当然还得解决配置和目录共享的问题，代码比较简单，完整配置代码见：
 
 https://github.com/hhtczengjing/ohpm-repo-docker
+
+### 配置
+
+uplink 功能可以让当前仓库获取配置的 uplink 仓库的所有包，若从某个已配置 uplink 的仓库下载当前仓库中不存在的三方包时，则会通过 uplink 仓库下载该包。这里仅支持设置一个 uplink。
+
+![add-uplink](/images/ohpm-repo-on-docker/add-uplink.png)
+
+推荐配置为：https://ohpm.openharmony.cn/ohpm/
+
+![uplink-repo-settings](/images/ohpm-repo-on-docker/uplink-repo-settings.png)
 
 ### 参考资料
 
